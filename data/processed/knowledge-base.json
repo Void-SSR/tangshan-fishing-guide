@@ -1,0 +1,1169 @@
+{
+  "project": "唐山钓鱼指南",
+  "version": "v1",
+  "generatedAt": "2026-04-13",
+  "contentFlags": [
+    "separate-from-legacy-site",
+    "compliance-needs-official-recheck-before-publication"
+  ],
+  "sourceDocuments": [
+    {
+      "id": "source-boat-2026-user",
+      "title": "唐山海域船钓（海钓）钓点全攻略2026实测版",
+      "mode": "boat",
+      "receivedAt": "2026-04-13",
+      "sourceType": "user_provided"
+    },
+    {
+      "id": "source-shore-2026-user",
+      "title": "唐山海域岸钓钓点全攻略2026实测版",
+      "mode": "shore",
+      "receivedAt": "2026-04-13",
+      "sourceType": "user_provided"
+    }
+  ],
+  "taxonomies": {
+    "modes": [
+      "boat",
+      "shore"
+    ],
+    "regions": [
+      "曹妃甸",
+      "乐亭",
+      "丰南",
+      "京唐港",
+      "滦南"
+    ],
+    "spotTypes": [
+      "国家级海洋牧场",
+      "人工鱼礁区",
+      "沉船礁区",
+      "外海",
+      "航道边缘",
+      "防波堤",
+      "港池",
+      "渔港",
+      "入海口",
+      "盐场闸口",
+      "咸淡水交汇区"
+    ],
+    "coreSpecies": [
+      "海鲈",
+      "许氏平鲉",
+      "鲅鱼"
+    ]
+  },
+  "spots": [
+    {
+      "id": "boat-cfd-longdao-ranch",
+      "mode": "boat",
+      "tier": "T1",
+      "rank": 1,
+      "name": "曹妃甸龙岛外海10-20海里国家级海洋牧场",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "国家级海洋牧场",
+        "人工鱼礁区",
+        "外海"
+      ],
+      "launchOrAccessPoint": "曹妃甸十八加渔港 / 曹妃甸龙岛旅游码头",
+      "coreZone": "龙岛周边10-20海里国家级海洋牧场海域",
+      "targetSpecies": [
+        "鲅鱼",
+        "海鲈",
+        "许氏平鲉"
+      ],
+      "commonSpecies": [
+        "真鲷",
+        "牙鲆",
+        "半滑舌鳎",
+        "海鳗"
+      ],
+      "seasonWindows": [
+        "鲅鱼：4月下旬-6月中旬；9月上旬-10月下旬",
+        "海鲈：4月中旬-6月中旬；9月上旬-11月下旬",
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "真鲷/牙鲆/半滑舌鳎：5-6月；9-12月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "30-60斤/人",
+        "peakRecord": "单船单场260斤",
+        "offSeasonAvgPerPerson": "15-25斤/人",
+        "stability": "淡季仍以大个体黑头、鲈鱼为主"
+      },
+      "highlights": [
+        "鲅鱼密度在来源文档中列为全唐山船钓TOP1",
+        "米级海鲈与3斤以上黑头均有高频记录",
+        "适合作为船钓旗舰推荐点位"
+      ],
+      "methodSummary": [
+        "优先人工鱼礁区、沉船点、海草床边缘、深浅水交界处",
+        "鲅鱼主攻5-15米中上层，黑头/鲈鱼主攻10-25米底层结构区",
+        "窗口期集中在清晨、傍晚和大潮转换期"
+      ],
+      "baitSummary": [
+        "活虾",
+        "活巴浪鱼",
+        "管蛆",
+        "高反光电镀铁板",
+        "夜光铁板"
+      ],
+      "costAndAccess": "距离较远，需正规持证休闲渔业船只出海",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "必须选择持证休闲渔业船舶",
+        "风力超6级或大雾低能见度严禁出海",
+        "严禁破坏海洋牧场人工鱼礁和海草床"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-lt-xiangyunwan-ranch",
+      "mode": "boat",
+      "tier": "T1",
+      "rank": 2,
+      "name": "乐亭祥云湾国家级海洋牧场+月坨岛周边5-15海里沉船礁区",
+      "region": "乐亭",
+      "spotTypes": [
+        "国家级海洋牧场",
+        "沉船礁区",
+        "人工鱼礁区"
+      ],
+      "launchOrAccessPoint": "乐亭祥云湾海洋牧场码头 / 月坨岛景区码头",
+      "coreZone": "码头周边5-15海里沉船区与人工鱼礁区",
+      "targetSpecies": [
+        "许氏平鲉",
+        "海鲈",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "六线鱼",
+        "真鲷",
+        "牙鲆",
+        "八爪鱼"
+      ],
+      "seasonWindows": [
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "海鲈：4月中旬-6月中旬；9月-11月下旬",
+        "鲅鱼：9月上旬-10月下旬",
+        "真鲷/牙鲆/六线鱼：5-6月；9-12月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "25-50斤/人",
+        "peakRecord": "单场220斤",
+        "offSeasonAvgPerPerson": "12-20斤/人",
+        "stability": "大个体黑头全年稳定"
+      },
+      "highlights": [
+        "许氏平鲉在来源文档中列为全唐山大个体密度TOP1",
+        "夜钓大黑头优势明显",
+        "适合做黑头专题页主推点"
+      ],
+      "methodSummary": [
+        "优先沉船周边、人工鱼礁密集区、海草床边缘",
+        "夜钓19-23点主攻大黑头，清晨傍晚攻鲈鱼和鲅鱼",
+        "建议采用单钩德州或串钩减少挂底"
+      ],
+      "baitSummary": [
+        "管蛆",
+        "活虾",
+        "沙蚕",
+        "铅头钩软饵",
+        "铁板"
+      ],
+      "costAndAccess": "正规海洋牧场运营，休渔期可合规休闲出海",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "沉船区和礁区挂底风险高，需多备铅坠和钓组",
+        "严禁进入周边养殖区作业",
+        "夜钓时需强化照明与人员协作"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-lt-putidao-west-reef",
+      "mode": "boat",
+      "tier": "T1",
+      "rank": 3,
+      "name": "唐山菩提岛西侧5-10海里人工鱼礁区",
+      "region": "乐亭",
+      "spotTypes": [
+        "人工鱼礁区",
+        "外海"
+      ],
+      "launchOrAccessPoint": "乐亭菩提岛码头",
+      "coreZone": "菩提岛西侧5-10海里人工鱼礁区",
+      "targetSpecies": [
+        "鲅鱼",
+        "海鲈",
+        "许氏平鲉"
+      ],
+      "commonSpecies": [
+        "真鲷",
+        "牙鲆",
+        "八爪鱼",
+        "三疣梭子蟹"
+      ],
+      "seasonWindows": [
+        "鲅鱼：9月-10月",
+        "海鲈/许氏平鲉：全年；旺季9月-次年1月",
+        "真鲷/牙鲆/八爪鱼：5-6月；9-12月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "25-40斤/人",
+        "peakRecord": "单场180斤",
+        "offSeasonAvgPerPerson": "10-20斤/人",
+        "stability": "鱼群稳定性强"
+      },
+      "highlights": [
+        "短途出海即可抵达，性价比较高",
+        "同时兼顾旅游属性，适合组合出行",
+        "可作为船钓入门升级点"
+      ],
+      "methodSummary": [
+        "优先人工鱼礁拐角、海草床与沙地交界处、深浅水过渡带",
+        "新手可先串钩底钓，进阶再上铁板与德州",
+        "夜钓和清晨傍晚都有效"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "管蛆"
+      ],
+      "costAndAccess": "短程船费低于龙岛外海",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "保持远离主航道和旅游活动区",
+        "优先选择熟悉人工鱼礁区的船家",
+        "兼顾旅游时仍需以天气与潮汐为先"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-fn-heiyanzi-reef",
+      "mode": "boat",
+      "tier": "T2",
+      "rank": 4,
+      "name": "丰南黑沿子渔港外海5-15海里人工鱼礁区",
+      "region": "丰南",
+      "spotTypes": [
+        "渔港",
+        "人工鱼礁区",
+        "外海"
+      ],
+      "launchOrAccessPoint": "丰南黑沿子中心渔港",
+      "coreZone": "渔港周边5-15海里人工鱼礁区",
+      "targetSpecies": [
+        "海鲈",
+        "许氏平鲉",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "牙鲆",
+        "半滑舌鳎",
+        "比目鱼",
+        "海鳗"
+      ],
+      "seasonWindows": [
+        "海鲈/许氏平鲉：全年；旺季9月-次年1月",
+        "鲅鱼：9月-10月",
+        "牙鲆/半滑舌鳎/比目鱼：5-6月；9-12月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "20-35斤/人",
+        "peakRecord": "单场160斤",
+        "offSeasonAvgPerPerson": "10-18斤/人",
+        "stability": "成本与回报比高"
+      },
+      "highlights": [
+        "天津与丰南钓友的一日往返优先点",
+        "船费明显低于核心外海场",
+        "配套齐全，适合网站做性价比推荐"
+      ],
+      "methodSummary": [
+        "优先人工鱼礁区、航道边缘和沙地礁区交界",
+        "涨潮前后2小时是高效窗口",
+        "新手底钓，进阶路亚德州或铁板"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "海蜈蚣"
+      ],
+      "costAndAccess": "渔港补给方便，适合轻装备出发",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "注意航道边缘安全，避免靠近主航道",
+        "渔港内活动频繁，登船和返港需服从安排",
+        "建议提前补足铅坠与底钓备件"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-jtg-channel-reef",
+      "mode": "boat",
+      "tier": "T2",
+      "rank": 5,
+      "name": "京唐港外海5-10海里航道人工鱼礁区",
+      "region": "京唐港",
+      "spotTypes": [
+        "航道边缘",
+        "人工鱼礁区",
+        "外海"
+      ],
+      "launchOrAccessPoint": "京唐港中心渔港",
+      "coreZone": "渔港外5-10海里航道人工鱼礁区",
+      "targetSpecies": [
+        "鲅鱼",
+        "海鲈",
+        "许氏平鲉"
+      ],
+      "commonSpecies": [
+        "梭鱼",
+        "海鲶鱼",
+        "鲐鱼"
+      ],
+      "seasonWindows": [
+        "鲅鱼：9月-10月",
+        "海鲈/许氏平鲉：全年；旺季9月-次年1月",
+        "梭鱼/鲐鱼：6-8月；10-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "20-35斤/人",
+        "peakRecord": "单场150斤",
+        "offSeasonAvgPerPerson": "8-15斤/人",
+        "stability": "短途高性价比"
+      },
+      "highlights": [
+        "京津冀短途出海首选",
+        "船费人均低，适合网站推荐为低门槛船钓点",
+        "鲅鱼、海鲈和黑头兼容性好"
+      ],
+      "methodSummary": [
+        "优先航道拐角、人工鱼礁区、防波堤外深水处",
+        "涨落潮转换期最强",
+        "鲅鱼用快抽铁板或拖钓，黑头/鲈鱼底钓"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "管蛆"
+      ],
+      "costAndAccess": "配套齐全，渔具店、餐饮、住宿完善",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "必须远离大型船舶主航道",
+        "听从船老大指挥，避免航道内停船作钓",
+        "注意港区海面交通变化"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-cfd-nanbao-reef",
+      "mode": "boat",
+      "tier": "T2",
+      "rank": 6,
+      "name": "曹妃甸南堡外海10-20海里人工鱼礁区",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "人工鱼礁区",
+        "外海"
+      ],
+      "launchOrAccessPoint": "曹妃甸南堡渔港",
+      "coreZone": "渔港外10-20海里人工鱼礁区",
+      "targetSpecies": [
+        "海鲈",
+        "许氏平鲉",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "牙鲆",
+        "半滑舌鳎",
+        "比目鱼"
+      ],
+      "seasonWindows": [
+        "海鲈/牙鲆/半滑舌鳎：5-6月；9-12月",
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "鲅鱼：9月-10月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "20-30斤/人",
+        "peakRecord": "单场140斤",
+        "offSeasonAvgPerPerson": "8-15斤/人",
+        "stability": "人为干扰少"
+      },
+      "highlights": [
+        "适合大个体海鲈与底栖鱼混合目标",
+        "唐山南部外海的稳定补充点",
+        "适合做进阶专题推荐"
+      ],
+      "methodSummary": [
+        "优先人工鱼礁区、海草床边缘、深浅水交界处",
+        "大潮期转换窗口更有效",
+        "底栖鱼底钓，中上层用米诺或铁板"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "管蛆"
+      ],
+      "costAndAccess": "出海距离偏远，宜早出晚归",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "部分海域涉及增殖放流核心区，误钓幼体需立即放生",
+        "出海时间长，需做好补水、防晒、防寒准备",
+        "选择熟悉该海域边界的正规船只"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-ln-zuidong-offshore",
+      "mode": "boat",
+      "tier": "T3",
+      "rank": 7,
+      "name": "滦南嘴东渔港外海5-15海里海域",
+      "region": "滦南",
+      "spotTypes": [
+        "渔港",
+        "外海",
+        "咸淡水交汇区"
+      ],
+      "launchOrAccessPoint": "滦南嘴东中心渔港",
+      "coreZone": "渔港外5-15海里海域",
+      "targetSpecies": [
+        "海鲈",
+        "许氏平鲉",
+        "梭鱼"
+      ],
+      "commonSpecies": [
+        "比目鱼",
+        "黄姑鱼",
+        "海鲶鱼"
+      ],
+      "seasonWindows": [
+        "海鲈：4-6月；9-11月",
+        "梭鱼/比目鱼/黄姑鱼：5-7月；9-11月",
+        "许氏平鲉：全年；旺季9月-次年1月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "18-28斤/人",
+        "peakRecord": "单场120斤",
+        "offSeasonAvgPerPerson": "8-12斤/人",
+        "stability": "咸淡水交汇区鱼种多"
+      },
+      "highlights": [
+        "适合新手做鱼种扩展练手",
+        "船费较低，补给方便",
+        "滦河入海口辐射区带来稳定饵料条件"
+      ],
+      "methodSummary": [
+        "优先滦河入海口辐射区、咸淡水交汇区、航道边缘",
+        "大潮涨潮前后2小时更优",
+        "新手先串钩底钓，进阶上软饵与米诺"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "海蜈蚣"
+      ],
+      "costAndAccess": "渔港配套完善，适合轻量船钓体验",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "靠近入海口区域需关注潮流变化",
+        "航道边缘作钓需控制船位",
+        "补给虽方便，仍要自备基础药品"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "boat-lt-daqinghe-offshore",
+      "mode": "boat",
+      "tier": "T3",
+      "rank": 8,
+      "name": "乐亭大清河渔港外海3-10海里海域",
+      "region": "乐亭",
+      "spotTypes": [
+        "渔港",
+        "外海",
+        "盐场闸口",
+        "人工鱼礁区"
+      ],
+      "launchOrAccessPoint": "乐亭大清河中心渔港",
+      "coreZone": "渔港外3-10海里海域",
+      "targetSpecies": [
+        "海鲈",
+        "梭鱼",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "鲻鱼",
+        "许氏平鲉",
+        "海鲶鱼"
+      ],
+      "seasonWindows": [
+        "海鲈：4-6月；9-11月",
+        "梭鱼/鲻鱼：10月-次年4月",
+        "鲅鱼：9-10月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "15-25斤/人",
+        "peakRecord": "单场110斤",
+        "offSeasonAvgPerPerson": "6-12斤/人",
+        "stability": "风浪小，体验友好"
+      },
+      "highlights": [
+        "短途出海、风浪较小、晕船风险低",
+        "适合作为第一次船钓体验点",
+        "盐场和养殖边缘环境带来季节性机会"
+      ],
+      "methodSummary": [
+        "优先盐场入海口外围、养殖区边缘、人工鱼礁区",
+        "关注开闸放水前后和涨潮窗口",
+        "新手先底钓，进阶再用软饵、铁板"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "面饵"
+      ],
+      "costAndAccess": "短程低成本，适合体验型出海",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "严禁进入养殖区作业",
+        "注意闸口放水和流速变化",
+        "浅水区虽稳，但仍需规范穿戴救生装备"
+      ],
+      "sourceDocumentId": "source-boat-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-cfd-xincheng-left-bank",
+      "mode": "shore",
+      "tier": "T1",
+      "rank": 1,
+      "name": "曹妃甸新城左岸堤顶路（溯河以西段）",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "防波堤",
+        "入海口",
+        "咸淡水交汇区"
+      ],
+      "launchOrAccessPoint": "曹妃甸新城左岸堤顶路",
+      "coreZone": "溯河以西2-5公里区段",
+      "targetSpecies": [
+        "海鲈",
+        "许氏平鲉",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "梭鱼",
+        "黑鲷",
+        "海鲶鱼"
+      ],
+      "seasonWindows": [
+        "海鲈：4月中旬-6月中旬；9月上旬-11月上旬",
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "鲅鱼：4月下旬-6月上旬；9月上旬-10月下旬",
+        "梭鱼/海鲶鱼：6-8月；10-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "10-18斤/人",
+        "peakRecord": "单场52斤",
+        "offSeasonAvgPerPerson": "3-6斤/人",
+        "stability": "春秋大潮期强势"
+      },
+      "highlights": [
+        "来源文档中列为全唐山岸钓海鲈密度TOP1",
+        "海鲈、黑头、鲅鱼三目标兼容度最高",
+        "适合网站首页做岸钓主推点"
+      ],
+      "methodSummary": [
+        "优先溯河入海口交汇区、堤岸拐角、水下乱石堆",
+        "涨潮钓近岸，退潮钓堤外深水",
+        "清晨、傍晚和夜钓窗口优先"
+      ],
+      "baitSummary": [
+        "鲜活沙蚕",
+        "小河虾",
+        "T尾软饵",
+        "浮水米诺"
+      ],
+      "costAndAccess": "堤顶路可通车，停车需在指定位置",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "全程无护栏，带儿童不建议前往",
+        "仅可在堤顶路岸钓，严禁下滩涂和进入湿地核心区",
+        "停车不得占用非机动车道"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-cfd-18plus-west-breakwater",
+      "mode": "shore",
+      "tier": "T1",
+      "rank": 2,
+      "name": "曹妃甸18+西防波堤",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "防波堤"
+      ],
+      "launchOrAccessPoint": "曹妃甸十八加西防波堤",
+      "coreZone": "矿石码头西侧5公里防波堤",
+      "targetSpecies": [
+        "许氏平鲉",
+        "海鲈",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "六线鱼",
+        "黑鲷",
+        "真鲷"
+      ],
+      "seasonWindows": [
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "海鲈：4月下旬-6月上旬；9月-11月",
+        "鲅鱼：4月下旬-6月；9月-10月",
+        "六线鱼/黑鲷：5-6月；9-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "8-15斤/人",
+        "peakRecord": "单场46斤",
+        "offSeasonAvgPerPerson": "2-5斤/人",
+        "stability": "夜钓大黑头表现突出"
+      },
+      "highlights": [
+        "来源文档中列为全唐山岸钓黑头TOP1",
+        "夜钓价值高，是黑头专题页的旗舰点",
+        "防波堤结构复杂，适合根钓内容展示"
+      ],
+      "methodSummary": [
+        "优先消波块缝隙、拐角、深水凹槽",
+        "涨二分到落八分为核心窗口",
+        "根钓黑头与铁板搜鲈鱼/鲅鱼双路线并行"
+      ],
+      "baitSummary": [
+        "管蛆",
+        "沙蚕",
+        "活虾",
+        "夜光铁板",
+        "沉水米诺"
+      ],
+      "costAndAccess": "坝根土路可停车，步行进入",
+      "newbieLevel": "low",
+      "safetyAndRules": [
+        "必须穿防滑钉鞋，严禁普通运动鞋上坝",
+        "只可在西侧防波堤作钓，东侧矿石码头属于作业区",
+        "不建议单独夜钓，涨潮时不得深入坝体"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-cfd-a-port-east-breakwater",
+      "mode": "shore",
+      "tier": "T1",
+      "rank": 3,
+      "name": "曹妃甸甸头工业区A港池东防波堤",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "港池",
+        "防波堤"
+      ],
+      "launchOrAccessPoint": "曹妃甸甸头A港池东防波堤",
+      "coreZone": "港池东侧2-4公里防波堤",
+      "targetSpecies": [
+        "许氏平鲉",
+        "海鲈"
+      ],
+      "commonSpecies": [
+        "六线鱼",
+        "黑鲷",
+        "梭鱼"
+      ],
+      "seasonWindows": [
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "海鲈：4月中旬-6月中旬；9月-11月",
+        "六线鱼/黑鲷/梭鱼：5-6月；9-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "7-13斤/人",
+        "peakRecord": "单场38斤",
+        "offSeasonAvgPerPerson": "3-6斤/人",
+        "stability": "全年较稳"
+      },
+      "highlights": [
+        "2-5斤海鲈密度高",
+        "人流少，钓位充足",
+        "适合做“安静但实用”的推荐点"
+      ],
+      "methodSummary": [
+        "优先港池拐角、入水口、消波块密集区",
+        "涨潮前后2小时和夜钓更佳",
+        "底钓黑头与贴结构搜鲈鱼并用"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "青沙蚕",
+        "铅头钩软饵",
+        "米诺"
+      ],
+      "costAndAccess": "港池外围辅路可停车，雨雪天通行性下降",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "远离港池作业船通道，鸣笛时立即收杆避让",
+        "不建议单独前往",
+        "土路雨雪天更适合SUV"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-jtg-fourth-port-south-breakwater",
+      "mode": "shore",
+      "tier": "T2",
+      "rank": 4,
+      "name": "京唐港四港池南防波堤",
+      "region": "京唐港",
+      "spotTypes": [
+        "港池",
+        "防波堤"
+      ],
+      "launchOrAccessPoint": "京唐港四港池南防波堤",
+      "coreZone": "南堤全程约3公里",
+      "targetSpecies": [
+        "许氏平鲉",
+        "海鲈",
+        "鲅鱼"
+      ],
+      "commonSpecies": [
+        "梭鱼",
+        "海鲶鱼",
+        "鲐鱼"
+      ],
+      "seasonWindows": [
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "海鲈：4月下旬-6月上旬；9月-11月",
+        "鲅鱼：9月-10月",
+        "梭鱼/海鲶鱼/鲐鱼：6-8月；10-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "6-12斤/人",
+        "peakRecord": "单场35斤",
+        "offSeasonAvgPerPerson": "2-4斤/人",
+        "stability": "新手友好"
+      },
+      "highlights": [
+        "京津冀一日往返体验优秀",
+        "停车和步行成本低",
+        "适合网站做新手入门页推荐"
+      ],
+      "methodSummary": [
+        "优先灯塔周边、堤头拐角、消波块密集区",
+        "涨潮前1小时到涨潮后2小时最强",
+        "新手底钓和轻路亚都可用"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "小尺寸高反光软饵",
+        "15g铁板"
+      ],
+      "costAndAccess": "停车免费，步行距离短，周边补给完善",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "防波堤湿滑，禁止攀爬高处消波块",
+        "注意港区海面交通与临时管控",
+        "适合白天入门体验，不建议单独深夜久留"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-cfd-sixplus-lighthouse",
+      "mode": "shore",
+      "tier": "T2",
+      "rank": 5,
+      "name": "曹妃甸6加灯塔/5号岛西防波堤",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "防波堤",
+        "灯塔",
+        "乱石结构区"
+      ],
+      "launchOrAccessPoint": "曹妃甸6加灯塔",
+      "coreZone": "灯塔周边2公里防波堤与5号岛西防波堤",
+      "targetSpecies": [
+        "许氏平鲉",
+        "海鲈"
+      ],
+      "commonSpecies": [
+        "梭鱼",
+        "海鲶鱼",
+        "六线鱼"
+      ],
+      "seasonWindows": [
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "海鲈：4月中旬-6月中旬；9月-11月",
+        "梭鱼/海鲶鱼/六线鱼：全年有口"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "5-10斤/人",
+        "peakRecord": "单场32斤",
+        "offSeasonAvgPerPerson": "2-5斤/人",
+        "stability": "冬季温水口附近有稳定口"
+      },
+      "highlights": [
+        "人少清净，适合日常休闲",
+        "底钓和轻根钓均可",
+        "适合做本地常去点推荐"
+      ],
+      "methodSummary": [
+        "优先灯塔周边乱石堆、防波堤拐角和结构区",
+        "涨潮前后2小时最稳，午间也可试",
+        "底钓与根钓双路线均可"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "管蛆",
+        "活虾",
+        "根钓软虫"
+      ],
+      "costAndAccess": "土路通行一般，周边无补给",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "土路有坑，雨雪天不建议轿车前往",
+        "全程无遮挡，需自备补给",
+        "避开主航道和恶劣天气"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-lt-daqinghe-saltfield-estuary",
+      "mode": "shore",
+      "tier": "T2",
+      "rank": 6,
+      "name": "乐亭大清河盐场外围入海口",
+      "region": "乐亭",
+      "spotTypes": [
+        "盐场闸口",
+        "入海口",
+        "咸淡水交汇区"
+      ],
+      "launchOrAccessPoint": "乐亭大清河盐场入海口",
+      "coreZone": "盐场外围排水闸口与入海口两岸堤岸",
+      "targetSpecies": [
+        "海鲈",
+        "梭鱼",
+        "鲻鱼"
+      ],
+      "commonSpecies": [
+        "海鲶鱼",
+        "斑鰶"
+      ],
+      "seasonWindows": [
+        "海鲈：4月中旬-6月中旬；9月-11月",
+        "梭鱼/鲻鱼：全年；旺季10月-次年4月",
+        "海鲶鱼/斑鰶：6-8月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "6-11斤/人",
+        "peakRecord": "单场36斤",
+        "offSeasonAvgPerPerson": "3-5斤/人",
+        "stability": "开闸期爆发力强"
+      },
+      "highlights": [
+        "开闸放水是核心触发条件",
+        "适合做季节性与潮汐专题页",
+        "冬春梭鱼价值突出"
+      ],
+      "methodSummary": [
+        "优先闸口上下游、咸淡水交汇区、堤岸乱石处",
+        "关注开闸放水前后1小时",
+        "手竿钓梭鱼与轻路亚鲈鱼并行"
+      ],
+      "baitSummary": [
+        "面饵",
+        "红海蚕",
+        "活沙蚕",
+        "活虾",
+        "缓沉米诺"
+      ],
+      "costAndAccess": "外围可到达，但必须避开盐场生产区",
+      "newbieLevel": "medium",
+      "safetyAndRules": [
+        "严禁进入盐场内部，仅可在外围堤岸作钓",
+        "退潮禁止下滩涂，防止陷泥",
+        "闸口开闸时间需要提前确认"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-cfd-threeplus-fourplus-south-breakwater",
+      "mode": "shore",
+      "tier": "T3",
+      "rank": 7,
+      "name": "曹妃甸3+、4+港区南防波堤",
+      "region": "曹妃甸",
+      "spotTypes": [
+        "港区",
+        "防波堤"
+      ],
+      "launchOrAccessPoint": "曹妃甸3加南防波堤",
+      "coreZone": "3+、4+港区南侧防波堤全程",
+      "targetSpecies": [
+        "许氏平鲉",
+        "海鲈"
+      ],
+      "commonSpecies": [
+        "梭鱼",
+        "海鲶鱼",
+        "六线鱼"
+      ],
+      "seasonWindows": [
+        "许氏平鲉：全年；旺季9月-次年1月",
+        "海鲈：4月下旬-6月上旬；9月-11月",
+        "梭鱼/海鲶鱼：6-8月；10-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "5-8斤/人",
+        "peakRecord": "单场28斤",
+        "offSeasonAvgPerPerson": "2-4斤/人",
+        "stability": "本地练手属性强"
+      },
+      "highlights": [
+        "人流少，钓位压力低",
+        "适合本地日常练手",
+        "冬季温水口附近仍有稳定鱼口"
+      ],
+      "methodSummary": [
+        "优先乱石堆、拐角和深水凹槽",
+        "涨潮前后2小时与夜钓效果较好",
+        "海竿串钩底钓为主"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾"
+      ],
+      "costAndAccess": "港区辅路停车，周边无补给",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "严禁进入港区作业区",
+        "需自备补给和照明",
+        "夜钓应结伴前往"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-fn-heiyanzi-south-dike",
+      "mode": "shore",
+      "tier": "T3",
+      "rank": 8,
+      "name": "丰南黑沿子中心渔港南堤",
+      "region": "丰南",
+      "spotTypes": [
+        "渔港",
+        "防波堤",
+        "入海口"
+      ],
+      "launchOrAccessPoint": "丰南黑沿子中心渔港南堤",
+      "coreZone": "渔港南防波堤与入海口两岸",
+      "targetSpecies": [
+        "海鲈",
+        "梭鱼",
+        "海鲶鱼"
+      ],
+      "commonSpecies": [
+        "比目鱼",
+        "半滑舌鳎"
+      ],
+      "seasonWindows": [
+        "海鲈：4月中旬-6月中旬；9月-11月",
+        "梭鱼/鲻鱼：10月-次年4月",
+        "海鲶鱼/比目鱼：6-8月；9-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "4-7斤/人",
+        "peakRecord": "单场26斤",
+        "offSeasonAvgPerPerson": "2-3斤/人",
+        "stability": "近城便捷型休闲点"
+      },
+      "highlights": [
+        "天津与丰南方向交通便利",
+        "渔具店与海鲜市场配套好",
+        "适合作为近城休闲点位"
+      ],
+      "methodSummary": [
+        "优先堤头、咸淡水交汇区、渔港航道两侧",
+        "涨潮前后2小时最稳",
+        "底钓为主，轻路亚为辅"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾",
+        "海蜈蚣"
+      ],
+      "costAndAccess": "渔港内补给方便，一日往返轻松",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "远离渔船航道并及时避让",
+        "防止在市场和港区车流密集区域乱停车",
+        "轻装出行也要带基础防滑装备"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    },
+    {
+      "id": "shore-ln-zuidong-south-breakwater",
+      "mode": "shore",
+      "tier": "T3",
+      "rank": 9,
+      "name": "滦南嘴东渔港南防波堤",
+      "region": "滦南",
+      "spotTypes": [
+        "渔港",
+        "防波堤",
+        "入海口"
+      ],
+      "launchOrAccessPoint": "滦南嘴东渔港南防波堤",
+      "coreZone": "南防波堤全程与入海口两岸",
+      "targetSpecies": [
+        "海鲈",
+        "梭鱼",
+        "海鲶鱼"
+      ],
+      "commonSpecies": [
+        "比目鱼",
+        "黄姑鱼"
+      ],
+      "seasonWindows": [
+        "海鲈：4月下旬-6月上旬；9月-11月",
+        "梭鱼/海鲶鱼：6-8月；10-11月",
+        "比目鱼/黄姑鱼：5-7月；9-11月"
+      ],
+      "catchProfile": {
+        "peakAvgPerPerson": "4-6斤/人",
+        "peakRecord": "单场22斤",
+        "offSeasonAvgPerPerson": "1-3斤/人",
+        "stability": "人少，偏练手"
+      },
+      "highlights": [
+        "滦河入海口南侧辐射区，饵料基础好",
+        "人为干扰少",
+        "适合作为补充型近岸点"
+      ],
+      "methodSummary": [
+        "优先堤头、交汇区和乱石堆处",
+        "涨潮前后2小时与大潮期更优",
+        "海竿串钩底钓即可覆盖主需求"
+      ],
+      "baitSummary": [
+        "沙蚕",
+        "活虾"
+      ],
+      "costAndAccess": "渔港配套较完善，可现场补给",
+      "newbieLevel": "high",
+      "safetyAndRules": [
+        "避让渔港作业船舶",
+        "遵守渔港现场通行秩序",
+        "恶劣天气下不建议前往堤头"
+      ],
+      "sourceDocumentId": "source-shore-2026-user",
+      "status": "structured"
+    }
+  ],
+  "rankings": {
+    "boat": {
+      "鲅鱼": [
+        "boat-cfd-longdao-ranch",
+        "boat-lt-putidao-west-reef",
+        "boat-lt-xiangyunwan-ranch"
+      ],
+      "海鲈": [
+        "boat-cfd-longdao-ranch",
+        "boat-lt-xiangyunwan-ranch",
+        "boat-jtg-channel-reef"
+      ],
+      "许氏平鲉": [
+        "boat-lt-xiangyunwan-ranch",
+        "boat-cfd-longdao-ranch",
+        "boat-lt-putidao-west-reef"
+      ]
+    },
+    "shore": {
+      "海鲈": [
+        "shore-cfd-xincheng-left-bank",
+        "shore-cfd-18plus-west-breakwater",
+        "shore-cfd-a-port-east-breakwater"
+      ],
+      "许氏平鲉": [
+        "shore-cfd-18plus-west-breakwater",
+        "shore-cfd-a-port-east-breakwater",
+        "shore-cfd-sixplus-lighthouse"
+      ],
+      "鲅鱼": [
+        "shore-cfd-18plus-west-breakwater",
+        "shore-jtg-fourth-port-south-breakwater",
+        "shore-cfd-xincheng-left-bank"
+      ]
+    }
+  },
+  "globalGuides": {
+    "boat": {
+      "compliance": [
+        "伏季休渔期相关展示内容需在正式发布前复核",
+        "休渔期内仅可在合规休闲渔业资质前提下进行休闲垂钓",
+        "不得进入禁渔区、水产种质资源保护区核心区",
+        "严禁多线多钩、锚鱼、可视探鱼设备等违规方式"
+      ],
+      "safety": [
+        "出海前核对72小时海洋天气",
+        "全程穿救生衣",
+        "风力超6级、大雾、暴雨严禁出海",
+        "提前留存船只信息、行程时间、紧急联系人"
+      ],
+      "gearReference": [
+        "鲅鱼：3.0号PE+6号碳前导，15-30g铁板或波爬",
+        "海鲈：2.0号PE+5号碳前导，10-20g铅头钩软饵或米诺",
+        "黑头：2.0号PE+5号碳前导，50-100g德州或串钩",
+        "底栖鱼：3号主线+2号子线，30-50g铅坠串钩"
+      ]
+    },
+    "shore": {
+      "compliance": [
+        "休渔期、钩数和禁用渔具条款对外展示前需复核",
+        "港口作业核心区、保护区、临时封控区不可进入",
+        "渔获以自用为原则，严禁交易",
+        "港口与工业区点位需加动态管控提示"
+      ],
+      "safety": [
+        "防波堤和礁石区优先穿防滑钉鞋",
+        "避免单独夜钓和单独攀爬坝体",
+        "大风、大雾、暴雨、寒潮时不建议出钓",
+        "退潮时禁止贸然下滩涂"
+      ],
+      "tideRules": [
+        "涨二分、落八分为优先窗口",
+        "农历初一、十五附近大潮更强",
+        "部分点位受闸口开闸放水强影响"
+      ],
+      "gearReference": [
+        "岸钓海鲈：ML竿，1.2号PE+3号前导，7-10g铅头钩软饵或浮水米诺",
+        "岸钓黑头：L/ML根钓竿，0.8号PE+2号前导，3.5-7g根钓钩或德州",
+        "岸钓鲅鱼：M竿，1.5号PE+4号前导，15-20g铁板或沉水米诺",
+        "梭鱼/海鲶鱼：2.7-3.6米海竿或矶钓竿，20-30g铅坠串钩"
+      ]
+    }
+  }
+}

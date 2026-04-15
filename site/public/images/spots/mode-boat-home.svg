@@ -1,0 +1,19 @@
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+      <defs>
+        <linearGradient id="mode-boat" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#071521"/>
+          <stop offset="100%" stop-color="#215d74"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="900" fill="url(#mode-boat)"/>
+      <circle cx="980" cy="160" r="140" fill="rgba(236,153,98,0.18)"/>
+      <path d="M0 900 L0 560 C240 440 420 430 620 500 C830 574 1010 518 1200 420 L1200 900 Z" fill="rgba(242,246,248,0.08)"/>
+      <path d="M110 520 C220 470 340 480 470 560 C590 634 716 650 860 594" fill="none" stroke="rgba(236,153,98,0.5)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M130 610 C230 570 350 586 494 656 C616 716 734 716 850 682" fill="none" stroke="rgba(236,153,98,0.28)" stroke-width="18" stroke-linecap="round"/>
+      <path d="M688 360 L772 360 L756 406 L704 406 Z" fill="rgba(242,246,248,0.9)"/><path d="M722 254 L722 360" stroke="rgba(242,246,248,0.9)" stroke-width="6"/><path d="M722 268 L780 320 L722 320 Z" fill="rgba(236,153,98,0.7)"/>
+      <text x="88" y="120" fill="#f2f6f8" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="600">唐山海钓指南</text>
+      <text x="88" y="686" fill="#f2f6f8" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="82" font-weight="700">出海钓</text>
+      <text x="88" y="756" fill="rgba(242,246,248,0.78)" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="30">优先推荐海洋牧场、人工鱼礁与沉船礁区的核心海域。</text>
+    </svg>
+  

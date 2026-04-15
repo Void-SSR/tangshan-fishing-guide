@@ -1,0 +1,508 @@
+{
+  "boat-cfd-longdao-ranch": {
+    "assetPriority": "high",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "official_report",
+      "hero": "public_environment"
+    },
+    "imageSource": {
+      "list": "唐山市政府公开页面",
+      "hero": "曹妃甸近海环境公开图"
+    },
+    "imageSourceTitle": {
+      "list": "人民日报报道曹妃甸海草床修复",
+      "hero": "光明网：曹妃甸区中心渔港向东南约3海里可达海草床"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.tangshan.gov.cn/zhuzhan/mtkts/20250617/1633140.html",
+      "hero": "https://m.gmw.cn/2025-08/12/content_38213304.htm"
+    },
+    "imagePrecision": {
+      "list": "regional_environment",
+      "hero": "regional_environment"
+    },
+    "verificationRefs": [
+      {
+        "title": "人民日报报道曹妃甸海草床修复",
+        "url": "https://www.tangshan.gov.cn/zhuzhan/mtkts/20250617/1633140.html"
+      },
+      {
+        "title": "光明网：曹妃甸区中心渔港向东南约3海里可达海草床",
+        "url": "https://m.gmw.cn/2025-08/12/content_38213304.htm"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 180,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "general_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p0",
+    "imageReplaceTodo": "replace_list_first",
+    "verificationNotes": "已核到曹妃甸近海生态与海草床背景，具体“龙岛外海10-20海里”仍按实操海域描述保留。"
+  },
+  "boat-lt-xiangyunwan-ranch": {
+    "assetPriority": "high",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "verified",
+    "imageType": {
+      "list": "official_scene",
+      "hero": "public_environment"
+    },
+    "imageAssetUrl": {
+      "list": "https://www.tangshan.gov.cn/bmdt/images/202312/31153258v7zf.png",
+      "hero": "https://www.tangshan.gov.cn/bmdt/images/202312/31153257nwjt.png"
+    },
+    "imageSource": {
+      "list": "唐山市政府公开页面",
+      "hero": "祥云湾海域公开环境图"
+    },
+    "imageSourceTitle": {
+      "list": "唐山市政府：祥云湾介绍",
+      "hero": "唐山市政府：祥云湾介绍"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.tangshan.gov.cn/zhuzhan/tslyltx/20250522/1583144.html",
+      "hero": "https://www.tangshan.gov.cn/zhuzhan/tslyltx/20250522/1583144.html"
+    },
+    "imagePrecision": {
+      "list": "regional_environment",
+      "hero": "regional_environment"
+    },
+    "verificationRefs": [
+      {
+        "title": "唐山市政府：祥云湾介绍",
+        "url": "https://www.tangshan.gov.cn/zhuzhan/tslyltx/20250522/1583144.html"
+      },
+      {
+        "title": "唐山市农业农村局：祥云湾国家级海洋牧场背景",
+        "url": "https://nyncj.tangshan.gov.cn/nongmuju/xqxx/20251029/1639872.html"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 180,
+    "verificationBreakdown": {
+      "identity": "supported",
+      "spot_name": "supported",
+      "access_control": "general_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p0",
+    "imageReplaceTodo": "maintain_current",
+    "verificationNotes": "祥云湾国家级海洋牧场官方属性支撑充分，“月坨岛周边沉船礁区”建议作为实操钓区描述使用。"
+  },
+  "boat-lt-putidao-west-reef": {
+    "assetPriority": "high",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "official_scene",
+      "hero": "public_environment"
+    },
+    "imageAssetUrl": {
+      "list": "https://www.tangshan.gov.cn/bmdt/images/202309/27153633podh.jpg",
+      "hero": "https://www.tangshan.gov.cn/bmdt/images/202309/27153642npwd.jpg"
+    },
+    "imageSource": {
+      "list": "唐山市政府公开页面",
+      "hero": "菩提岛外海公开环境图"
+    },
+    "imageSourceTitle": {
+      "list": "唐山市政府：菩提岛景区介绍",
+      "hero": "唐山市政府：菩提岛景区介绍"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.tangshan.gov.cn/zhuzhan/tslyltx/20250522/1582690.html",
+      "hero": "https://www.tangshan.gov.cn/zhuzhan/tslyltx/20250522/1582690.html"
+    },
+    "imagePrecision": {
+      "list": "regional_environment",
+      "hero": "regional_environment"
+    },
+    "verificationRefs": [
+      {
+        "title": "唐山市政府：菩提岛景区介绍",
+        "url": "https://www.tangshan.gov.cn/zhuzhan/tslyltx/20250522/1582690.html"
+      },
+      {
+        "title": "农业农村部公告第248号：河北唐山大清河口海域唐山湾等24个海洋牧场获批",
+        "url": "https://www.moa.gov.cn/nybgb/2020/202002/202004/t20200414_6341554.htm"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 180,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "general_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p0",
+    "imageReplaceTodo": "maintain_current",
+    "verificationNotes": "菩提岛与码头大区域可核，“西侧5-10海里人工鱼礁区”为实操海域描述，建议保留并持续补强。"
+  },
+  "boat-fn-heiyanzi-reef": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "黑沿子渔港与近海外海场景成立，具体“5-15海里人工鱼礁区”缺少更直接公开点位对应。"
+  },
+  "boat-jtg-channel-reef": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "imageSource": {
+      "list": "京唐港公开环境图",
+      "hero": "公开地图标注整理"
+    },
+    "imageSourceUrl": {
+      "list": "https://xxgk.mot.gov.cn/jigou/syj/202006/t20200623_3314696.html",
+      "hero": null
+    },
+    "verificationNotes": "京唐港航道与外海管理背景明确，具体“5-10海里航道人工鱼礁区”建议按实操海域描述保留。"
+  },
+  "boat-cfd-nanbao-reef": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "pending_review",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "南堡渔港与外海作钓逻辑成立，但“10-20海里人工鱼礁区”仍缺少稳定公开对应。"
+  },
+  "boat-ln-zuidong-offshore": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "嘴东渔港与入海口近海外海场景成立，精确到“5-15海里”仍建议按经验海域描述处理。"
+  },
+  "boat-lt-daqinghe-offshore": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "大清河口与近海场景可核，具体“外海3-10海里海域”建议按本地实操表达保留。"
+  },
+  "shore-cfd-xincheng-left-bank": {
+    "assetPriority": "high",
+    "dangerFlags": [
+      "deep_water_no_guardrail"
+    ],
+    "dangerLevel": "high",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "imageAssetUrl": {
+      "list": "https://www.tangshan.gov.cn/u/cms/www/202312/291705323esi.jpg"
+    },
+    "imageSource": {
+      "list": "唐山市政府公开环境图",
+      "hero": "公开地图标注整理"
+    },
+    "imageSourceTitle": {
+      "list": "唐山市政府：揽月湾旅游景区",
+      "hero": "公开地图标注整理"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.tangshan.gov.cn/zhuzhan/tslycfdq/20231229/1583026.html",
+      "hero": null
+    },
+    "imagePrecision": {
+      "list": "regional_environment",
+      "hero": "annotated_map"
+    },
+    "verificationRefs": [
+      {
+        "title": "唐山市人民政府：这里是曹妃甸新城",
+        "url": "https://www.tangshan.gov.cn/zhuzhan/zw_sdzdxq_caofeidian/20220712/1443868.html"
+      },
+      {
+        "title": "唐山文化旅游：曹妃甸湿地景区介绍",
+        "url": "https://www.visitbeijing.com.cn/article/4GpSnRVLBfB?device=amp"
+      },
+      {
+        "title": "唐山市政府：揽月湾旅游景区",
+        "url": "https://www.tangshan.gov.cn/zhuzhan/tslycfdq/20231229/1583026.html"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 30,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "general_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p0",
+    "imageReplaceTodo": "replace_hero_first",
+    "verificationNotes": "湿地与堤岸大区域真实存在，具体“溯河以西2-5公里”仍按实操区段保留；列表图已升级为曹妃甸新城滨海公开环境图。"
+  },
+  "shore-cfd-18plus-west-breakwater": {
+    "assetPriority": "high",
+    "dangerFlags": [
+      "slippery_tetrapods",
+      "tide_cutoff_risk",
+      "night_fall_risk"
+    ],
+    "dangerLevel": "high",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "map_annotated",
+      "hero": "public_environment"
+    },
+    "imageSource": {
+      "list": "十八加码头公开 POI 标注",
+      "hero": "矿石码头西侧周边公开环境图"
+    },
+    "imageSourceTitle": {
+      "list": "永安旅游：曹妃甸十八加码头 POI（含附近六加灯塔）",
+      "hero": "曹妃甸港集团：矿石码头股份有限公司简介"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.wingontravel.com/discovery/scenic--71571466",
+      "hero": "https://www.caofeidianport.com/gsgk/jcdw/ksmt.htm"
+    },
+    "imagePrecision": {
+      "list": "annotated_map",
+      "hero": "regional_environment"
+    },
+    "verificationRefs": [
+      {
+        "title": "永安旅游：曹妃甸十八加码头 POI（含附近六加灯塔）",
+        "url": "https://www.wingontravel.com/discovery/scenic--71571466"
+      },
+      {
+        "title": "曹妃甸港集团：矿石码头股份有限公司简介",
+        "url": "https://www.caofeidianport.com/gsgk/jcdw/ksmt.htm"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 30,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "dynamic_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p0",
+    "imageReplaceTodo": "replace_hero_first",
+    "verificationNotes": "港区防波堤场景成立，但“18+西防波堤”为本地常用名，仍需继续补精确公开对应。"
+  },
+  "shore-cfd-a-port-east-breakwater": {
+    "assetPriority": "high",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "pending_review",
+    "imageType": {
+      "list": "map_annotated",
+      "hero": "placeholder_structure"
+    },
+    "imageSource": {
+      "list": "港池岛区公开公告与地图整理",
+      "hero": "系统生成结构占位图"
+    },
+    "imageSourceTitle": {
+      "list": "曹妃甸区人民政府：港池岛区施工公告",
+      "hero": "结构示意占位图"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.caofeidian.gov.cn/caofeidian/tscaofeidtongzhigonggao/20250430/1211592837.html",
+      "hero": null
+    },
+    "imagePrecision": {
+      "list": "annotated_map",
+      "hero": "placeholder"
+    },
+    "verificationRefs": [
+      {
+        "title": "曹妃甸区人民政府：港池岛区货车导行线路项目施工公告",
+        "url": "https://www.caofeidian.gov.cn/caofeidian/tscaofeidtongzhigonggao/20250430/1211592837.html"
+      },
+      {
+        "title": "曹妃甸港集团：弘毅码头分公司简介",
+        "url": "https://caofeidianport.com/info/1331/1231.htm"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 30,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "dynamic_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p1",
+    "imageReplaceTodo": "placeholder_ok_for_now",
+    "verificationNotes": "工业区港池与防波堤结构匹配，但当前缺少精确到“A港池东防波堤”的稳定公开页。"
+  },
+  "shore-jtg-fourth-port-south-breakwater": {
+    "assetPriority": "high",
+    "dangerFlags": [
+      "slippery_breakwater"
+    ],
+    "dangerLevel": "high",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "imageSource": {
+      "list": "京唐港公开环境图",
+      "hero": "公开地图标注整理"
+    },
+    "imageSourceTitle": {
+      "list": "交通运输部：京唐港区东南防波堤说明",
+      "hero": "公开地图标注整理"
+    },
+    "imageSourceUrl": {
+      "list": "https://xxgk.mot.gov.cn/jigou/syj/202006/t20200623_3314696.html",
+      "hero": null
+    },
+    "imagePrecision": {
+      "list": "regional_environment",
+      "hero": "annotated_map"
+    },
+    "verificationRefs": [
+      {
+        "title": "交通运输部：京唐港区东南防波堤说明",
+        "url": "https://xxgk.mot.gov.cn/jigou/syj/202006/t20200623_3314696.html"
+      },
+      {
+        "title": "中国唐山海港开发区：海上巡航与口岸安全监管",
+        "url": "https://www.tshg.gov.cn/tshaigang/tshghgywg/20250103/1211578438.html"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 30,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "dynamic_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p0",
+    "imageReplaceTodo": "replace_list_first",
+    "verificationNotes": "京唐港港区与防波堤大区域有公开支撑，“四港池南防波堤”建议按本地常用名保留。"
+  },
+  "shore-cfd-sixplus-lighthouse": {
+    "assetPriority": "high",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "map_annotated",
+      "hero": "public_environment"
+    },
+    "imageSource": {
+      "list": "六加灯塔公开 POI 标注",
+      "hero": "灯塔周边卫星环境图"
+    },
+    "imageSourceTitle": {
+      "list": "永安旅游：曹妃甸十八加码头 POI（含附近六加灯塔）",
+      "hero": "Mapcarta：曹妃甸港灯塔 POI 与卫星底图"
+    },
+    "imageSourceUrl": {
+      "list": "https://www.wingontravel.com/discovery/scenic--71571466",
+      "hero": "https://mapcarta.com/N10026685959"
+    },
+    "imagePrecision": {
+      "list": "annotated_map",
+      "hero": "nearby_environment"
+    },
+    "verificationRefs": [
+      {
+        "title": "永安旅游：曹妃甸十八加码头 POI（含附近六加灯塔）",
+        "url": "https://www.wingontravel.com/discovery/scenic--71571466"
+      },
+      {
+        "title": "Mapcarta：曹妃甸港灯塔 POI 与卫星底图",
+        "url": "https://mapcarta.com/N10026685959"
+      }
+    ],
+    "verificationCheckedAt": "2026-04-14",
+    "verificationWindowDays": 30,
+    "verificationBreakdown": {
+      "identity": "regional_supported",
+      "spot_name": "local_alias",
+      "access_control": "general_review_required",
+      "danger_front_badge": "life_threat_only"
+    },
+    "replacementPriority": "p1",
+    "imageReplaceTodo": "replace_hero_first",
+    "verificationNotes": "灯塔与周边防波堤结构场景基本合理，但“6加灯塔/5号岛西防波堤”缺少更稳定公开对应。"
+  },
+  "shore-lt-daqinghe-saltfield-estuary": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "盐场外围入海口与闸口场景成立，精确钓段建议按外围堤岸实操描述保留。"
+  },
+  "shore-cfd-threeplus-fourplus-south-breakwater": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "pending_review",
+    "imageType": {
+      "list": "map_annotated",
+      "hero": "placeholder_structure"
+    },
+    "verificationNotes": "港区南侧防波堤场景逻辑成立，但“3+、4+港区南防波堤”仍需进一步补足公开对应。"
+  },
+  "shore-fn-heiyanzi-south-dike": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "黑沿子渔港与南堤、入海口场景可成立，精确钓段建议按本地经验点位保留。"
+  },
+  "shore-ln-zuidong-south-breakwater": {
+    "assetPriority": "normal",
+    "dangerFlags": [],
+    "dangerLevel": "none",
+    "verificationStatus": "partially_verified",
+    "imageType": {
+      "list": "public_environment",
+      "hero": "map_annotated"
+    },
+    "verificationNotes": "嘴东渔港南防波堤与入海口两岸场景成立，具体点位仍建议按本地实操表达处理。"
+  }
+}

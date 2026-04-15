@@ -1,0 +1,19 @@
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+      <defs>
+        <linearGradient id="icon-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#071521"/>
+          <stop offset="100%" stop-color="#1d4963"/>
+        </linearGradient>
+      </defs>
+      <rect width="1024" height="1024" rx="228" fill="url(#icon-bg)"/>
+      <circle cx="760" cy="216" r="128" fill="rgba(239,139,94,0.18)"/>
+      <path d="M164 734 C264 676 380 670 504 726 C626 782 756 790 880 746" fill="none" stroke="rgba(239,139,94,0.7)" stroke-width="28" stroke-linecap="round"/>
+      <path d="M164 820 C268 764 384 758 508 810 C620 858 744 866 860 834" fill="none" stroke="rgba(239,139,94,0.36)" stroke-width="20" stroke-linecap="round"/>
+      <path d="M514 224 L542 224 L542 634 L514 634 Z" fill="#eef4f7"/>
+      <path d="M428 360 L628 360" stroke="#eef4f7" stroke-width="30" stroke-linecap="round"/>
+      <path d="M530 230 L650 330 L530 330 Z" fill="rgba(239,139,94,0.92)"/>
+      <text x="168" y="636" fill="#eef4f7" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="116" font-weight="700">海钓</text>
+      <text x="172" y="716" fill="rgba(238,244,247,0.74)" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="46">TANGSHAN FISHING GUIDE</text>
+    </svg>
+  

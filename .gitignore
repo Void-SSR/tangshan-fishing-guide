@@ -1,0 +1,6 @@
+.DS_Store
+
+site/dist/
+site/releases/
+site/test-results/
+site/src/data/generated/

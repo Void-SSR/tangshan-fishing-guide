@@ -1,0 +1,13 @@
+{
+  "name": "tangshan-fishing-guide-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "npm run build && python3 -m http.server 4321 -d dist",
+    "serve": "python3 -m http.server 4321 -d dist",
+    "preview:diagnose": "node scripts/check-preview-env.mjs",
+    "test:smoke": "npm run build && node tests/smoke-static.mjs",
+    "test:browser": "npm run build && node ../../node_modules/@playwright/test/cli.js test --config=tests/playwright.config.mjs"
+  }
+}
