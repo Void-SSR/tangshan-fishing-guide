@@ -8,6 +8,12 @@
     "serve": "python3 -m http.server 4321 -d dist",
     "preview:diagnose": "node scripts/check-preview-env.mjs",
     "test:smoke": "npm run build && node tests/smoke-static.mjs",
-    "test:browser": "npm run build && node ../../node_modules/@playwright/test/cli.js test --config=tests/playwright.config.mjs"
+    "test:browser": "npm run build && playwright test --config=tests/playwright.config.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
   }
 }

@@ -29,6 +29,7 @@
 - 危险提示规则与核验状态规则
 - 静态 smoke 验收
 - 高优先级点位持续补图机制
+- GitHub Pages 自动部署工作流
 
 ## 目录结构
 
@@ -74,6 +75,20 @@
   - [subagent-roster-and-log-v1.md](/Users/ssr/Downloads/Openai%20Codex/tangshan-fishing-guide/docs/subagent-roster-and-log-v1.md:1)
 - 第一版交付：
   - [site-release-v1.md](/Users/ssr/Downloads/Openai%20Codex/tangshan-fishing-guide/docs/site-release-v1.md:1)
+- GitHub Pages 发布：
+  - [github-pages-deploy-v1.md](/Users/ssr/Downloads/Openai%20Codex/tangshan-fishing-guide/docs/github-pages-deploy-v1.md:1)
+
+## 公网发布
+
+仓库已经包含 GitHub Pages 自动部署工作流：
+
+- `.github/workflows/deploy-pages.yml`
+
+推送到 `main` 后，去 GitHub 仓库的 `Settings -> Pages`，确认来源为 `GitHub Actions`。
+
+如果仓库名保持为 `tangshan-fishing-guide`，默认公网地址会是：
+
+- `https://void-ssr.github.io/tangshan-fishing-guide/`
 
 ## 当前默认假设
 

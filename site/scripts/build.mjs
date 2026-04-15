@@ -1486,8 +1486,8 @@ async function collectFiles(dirPath, rootPath = dirPath) {
 
 async function writeServiceWorker(routeUrls) {
   const assetUrls = (await collectFiles(distDir))
-    .map((filePath) => `/${path.relative(distDir, filePath).replaceAll(path.sep, "/")}`)
-    .filter((url) => !url.endsWith("/sw.js"));
+    .map((filePath) => path.relative(distDir, filePath).replaceAll(path.sep, "/"))
+    .filter((url) => url !== "sw.js");
   const cacheUrls = unique([
     ...routeUrls,
     ...assetUrls
@@ -1495,6 +1495,7 @@ async function writeServiceWorker(routeUrls) {
 
   const serviceWorker = `const CACHE_NAME = "tangshan-fishing-guide-${buildDate}";
 const PRECACHE_URLS = ${JSON.stringify(cacheUrls, null, 2)};
+const APP_SHELL_URL = "./";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -1530,7 +1531,7 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(async () => {
-          return caches.match(request) || caches.match("/") || Response.error();
+          return caches.match(request) || caches.match(APP_SHELL_URL) || caches.match("index.html") || Response.error();
         })
     );
     return;
@@ -1612,20 +1613,20 @@ async function main() {
       name: "唐山海钓指南",
       short_name: "唐山海钓",
       description: "围绕海岸钓与出海钓核心点位的 App 型海钓指南。",
-      start_url: "/",
-      scope: "/",
+      start_url: "./",
+      scope: "./",
       display: "standalone",
       background_color: "#071521",
       theme_color: "#071521",
       icons: [
         {
-          src: "/icons/icon-192.png",
+          src: "icons/icon-192.png",
           sizes: "192x192",
           type: "image/png",
           purpose: "any maskable"
         },
         {
-          src: "/icons/icon-512.png",
+          src: "icons/icon-512.png",
           sizes: "512x512",
           type: "image/png",
           purpose: "any maskable"
@@ -1650,7 +1651,7 @@ async function main() {
   await writeText(path.join(distDataDir, "site-data.json"), JSON.stringify(siteData, null, 2));
   await writeText(path.join(distDataDir, "spot-enrichment.json"), JSON.stringify(enrichmentOverrides, null, 2));
 
-  const routeUrls = ["/", "/shore/", "/boat/", "/about-ranking/", "/compliance/", "/updates/"];
+  const routeUrls = ["./", "index.html", "shore/index.html", "boat/index.html", "about-ranking/index.html", "compliance/index.html", "updates/index.html"];
 
   await writeText(path.join(distDir, "index.html"), renderHomePage(siteData));
   await writeText(path.join(distDir, "shore", "index.html"), renderListPage("shore", enrichedSpots.filter((spot) => spot.mode === "shore")));
@@ -1660,13 +1661,14 @@ async function main() {
   await writeText(path.join(distDir, "updates", "index.html"), renderUpdatesPage(siteData));
 
   for (const spot of enrichedSpots) {
-    routeUrls.push(`/spots/${spot.id}/`);
+    routeUrls.push(`spots/${spot.id}/index.html`);
     await writeText(
       path.join(distDir, "spots", spot.id, "index.html"),
       renderDetailPage(spot, spotMap)
     );
   }
 
+  await writeText(path.join(distDir, ".nojekyll"), "");
   await writeServiceWorker(routeUrls);
 }
 

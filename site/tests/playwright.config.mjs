@@ -1,4 +1,4 @@
-import playwrightTest from "../../../node_modules/@playwright/test/index.js";
+import playwrightTest from "@playwright/test";
 
 const { defineConfig } = playwrightTest;
 
