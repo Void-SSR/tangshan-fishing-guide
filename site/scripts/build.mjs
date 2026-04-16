@@ -908,27 +908,6 @@ function localizeInternalUrls(html, pathDepth) {
   });
 }
 
-function renderDynamicBaseScript() {
-  return `<script>
-      (() => {
-        const { protocol, pathname } = window.location;
-        let baseHref = "./";
-
-        if (protocol !== "file:") {
-          if (pathname.endsWith("/")) {
-            baseHref = pathname;
-          } else if (/\\.[a-z0-9]+$/i.test(pathname)) {
-            baseHref = pathname.replace(/[^/]+$/, "");
-          } else {
-            baseHref = \`\${pathname}/\`;
-          }
-        }
-
-        document.write(\`<base href="\${baseHref}">\`);
-      })();
-    </script>`;
-}
-
 function pageTemplate({
   title,
   description,
@@ -962,7 +941,6 @@ function pageTemplate({
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="description" content="${escapeHtml(description)}" />
     <title>${escapeHtml(title)}</title>
-    ${renderDynamicBaseScript()}
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
