@@ -83,20 +83,24 @@ async function main() {
   const swText = await read("sw.js");
 
   assert.ok(homeHtml.includes("唐山海钓指南"), "首页缺少主标题");
+  assert.ok(homeHtml.includes("<base href="), "首页缺少动态 base 兼容层");
   assert.equal((homeHtml.match(/进入海岸钓/g) || []).length, 1, "首页海岸钓入口数量不正确");
   assert.equal((homeHtml.match(/进入出海钓/g) || []).length, 1, "首页出海钓入口数量不正确");
   assert.equal((homeHtml.match(/class="mode-card"/g) || []).length, 2, "首页模式卡片数量不正确");
 
   assert.ok(shoreHtml.includes("海岸钓"), "海岸钓列表页缺少标题");
+  assert.ok(shoreHtml.includes("<base href="), "海岸钓列表页缺少动态 base 兼容层");
   assert.ok(!shoreHtml.includes("进入海岸钓"), "海岸钓列表页仍然出现首页入口");
   assert.ok(!shoreHtml.includes("进入出海钓"), "海岸钓列表页仍然出现首页入口");
   assert.ok(shoreHtml.includes("清空筛选"), "海岸钓列表页缺少清空筛选操作");
   assert.ok(boatHtml.includes("出海钓"), "出海钓列表页缺少标题");
+  assert.ok(boatHtml.includes("<base href="), "出海钓列表页缺少动态 base 兼容层");
   assert.ok(!boatHtml.includes("进入海岸钓"), "出海钓列表页仍然出现首页入口");
   assert.ok(!boatHtml.includes("进入出海钓"), "出海钓列表页仍然出现首页入口");
   assert.ok(boatHtml.includes("清空筛选"), "出海钓列表页缺少清空筛选操作");
 
   assert.ok(sampleDetail.includes("风险与注意事项"), "详情页缺少风险区");
+  assert.ok(sampleDetail.includes("<base href="), "详情页缺少动态 base 兼容层");
   assert.ok(sampleDetail.includes("信息来源与更新时间"), "详情页缺少来源与更新时间");
   assert.ok(sampleDetail.includes("查看核验与图片说明"), "详情页缺少核验与图片说明入口");
   assert.ok(sampleDetail.includes("当前主图："), "详情页缺少当前主图说明");

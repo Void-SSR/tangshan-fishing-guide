@@ -21,9 +21,23 @@ const distScriptDir = path.join(distDir, "scripts");
 const distStyleDir = path.join(distDir, "styles");
 const distDataDir = path.join(distDir, "data");
 
+const buildMoment = new Date();
 const buildDate = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Asia/Shanghai"
-}).format(new Date());
+}).format(buildMoment);
+const buildStamp = new Intl.DateTimeFormat("sv-SE", {
+  timeZone: "Asia/Shanghai",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit"
+})
+  .format(buildMoment)
+  .replaceAll("-", "")
+  .replaceAll(":", "")
+  .replace(" ", "-");
 
 const modeMeta = {
   shore: {
@@ -894,6 +908,27 @@ function localizeInternalUrls(html, pathDepth) {
   });
 }
 
+function renderDynamicBaseScript() {
+  return `<script>
+      (() => {
+        const { protocol, pathname } = window.location;
+        let baseHref = "./";
+
+        if (protocol !== "file:") {
+          if (pathname.endsWith("/")) {
+            baseHref = pathname;
+          } else if (/\\.[a-z0-9]+$/i.test(pathname)) {
+            baseHref = pathname.replace(/[^/]+$/, "");
+          } else {
+            baseHref = \`\${pathname}/\`;
+          }
+        }
+
+        document.write(\`<base href="\${baseHref}">\`);
+      })();
+    </script>`;
+}
+
 function pageTemplate({
   title,
   description,
@@ -927,6 +962,7 @@ function pageTemplate({
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="description" content="${escapeHtml(description)}" />
     <title>${escapeHtml(title)}</title>
+    ${renderDynamicBaseScript()}
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
@@ -1493,7 +1529,7 @@ async function writeServiceWorker(routeUrls) {
     ...assetUrls
   ]);
 
-  const serviceWorker = `const CACHE_NAME = "tangshan-fishing-guide-${buildDate}";
+  const serviceWorker = `const CACHE_NAME = "tangshan-fishing-guide-${buildStamp}";
 const PRECACHE_URLS = ${JSON.stringify(cacheUrls, null, 2)};
 const APP_SHELL_URL = "./";
 
