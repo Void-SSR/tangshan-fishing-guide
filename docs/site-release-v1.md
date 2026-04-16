@@ -56,8 +56,12 @@
 
 - 静态站可构建
 - `dist/` 产物已生成
+- `safety:preflight` 已通过
 - `test:smoke` 已通过
 - 浏览器 E2E 脚本已存在，当前环境受限未作为阻断项
+- GitHub Pages 部署链路已打通
+- GitHub Pages 子路径与不带尾斜杠访问的兼容已补齐
+- Service Worker 缓存名已改为秒级构建标识，避免同日重复发布命中旧壳缓存
 
 ## 第一版已知限制
 
@@ -72,8 +76,8 @@
 3. 浏览器动态回归未在当前环境完整实跑  
    当前环境本地端口受限，因此以静态 smoke 作为收口门槛。
 
-4. 当前默认按根路径部署  
-   如果后续改成子目录部署，需要单独复核 PWA 的路径配置。
+4. 真实图片仍未完成终态替换  
+   当前已具备公开环境图 / 标注图 / 占位图上线能力，但不是终态素材质量。
 
 ## 当前上线门槛判断
 
@@ -82,6 +86,17 @@
 - 大北：无核验阻断项
 - 大东：无 UI 阻断项
 - 大南：无 QA 阻断项
+- 本地安全底线：无阻断项
+
+## 当前正式版本要求
+
+从这一版开始，任何交给用户查验的阶段版本，都必须同时满足：
+
+- 先过 `npm run safety:preflight`
+- 再过大南 QA Gate
+- 最后再交付用户查验
+
+不满足这三项的版本，不视为正式版本。
 
 ## 第一版后的优先继续项
 
@@ -97,4 +112,4 @@
 - 静态产物：
   - `/Users/ssr/Downloads/Openai Codex/tangshan-fishing-guide/site/dist`
 - 第一版打包产物：
-  - `/Users/ssr/Downloads/Openai Codex/tangshan-fishing-guide/site/releases/tangshan-fishing-guide-v1-2026-04-15.zip`
+  - `/Users/ssr/Downloads/Openai Codex/tangshan-fishing-guide/site/releases/tangshan-fishing-guide-v1-2026-04-16.zip`
