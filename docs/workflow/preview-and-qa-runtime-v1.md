@@ -18,6 +18,11 @@
 
 ## 预览链路优先级
 
+在进入任何预览链路之前，先过本地安全底线：
+
+- `npm run safety:preflight`
+- 规则见 [local-safety-baseline-v1.md](/Users/ssr/Downloads/Openai%20Codex/tangshan-fishing-guide/docs/workflow/local-safety-baseline-v1.md:1)
+
 ### 1. 宿主机真实预览
 
 优先入口：
