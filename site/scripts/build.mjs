@@ -966,14 +966,14 @@ function pageTemplate({
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/styles/site.css" />
+    <link rel="stylesheet" href="/styles/site.css?v=${buildStamp}" />
   </head>
   <body ${bodyAttrs.join(" ")}>
     <div class="page-backdrop" aria-hidden="true"></div>
     ${content}
     <button type="button" class="back-to-top" hidden data-back-top>回到顶部</button>
-    <script type="module" src="/scripts/app.js"></script>
-    ${scripts.map((script) => `<script type="module" src="/scripts/${escapeHtml(script)}"></script>`).join("\n    ")}
+    <script type="module" src="/scripts/app.js?v=${buildStamp}"></script>
+    ${scripts.map((script) => `<script type="module" src="/scripts/${escapeHtml(script)}?v=${buildStamp}"></script>`).join("\n    ")}
   </body>
 </html>`;
 

@@ -133,17 +133,41 @@ function bindInstallButtons() {
   });
 }
 
-function registerServiceWorker() {
+async function unregisterExistingServiceWorkers() {
   if (!("serviceWorker" in navigator) || window.location.protocol === "file:") {
     return;
   }
 
+  try {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(registrations.map((registration) => registration.unregister()));
+  } catch {
+    // Ignore cleanup failures.
+  }
+}
+
+async function clearGuideCaches() {
+  if (!("caches" in window)) {
+    return;
+  }
+
+  try {
+    const keys = await caches.keys();
+    const targets = keys.filter((key) => key.startsWith("tangshan-fishing-guide-"));
+    await Promise.all(targets.map((key) => caches.delete(key)));
+  } catch {
+    // Ignore cleanup failures.
+  }
+}
+
+function reconcileRuntimeCaches() {
+  if (window.location.protocol === "file:") {
+    return;
+  }
+
   window.addEventListener("load", async () => {
-    try {
-      await navigator.serviceWorker.register(new URL("../sw.js", import.meta.url));
-    } catch {
-      // Ignore registration failures in local development.
-    }
+    await unregisterExistingServiceWorkers();
+    await clearGuideCaches();
   });
 }
 
@@ -166,5 +190,5 @@ bindFavoriteButtons();
 bindShareButtons();
 bindBackToTop();
 bindInstallButtons();
-registerServiceWorker();
+reconcileRuntimeCaches();
 updateTimestamp();
