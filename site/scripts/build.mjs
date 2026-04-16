@@ -916,7 +916,11 @@ function pageTemplate({
   modePageKey = "",
   content,
   scripts = [],
-  pathDepth = 0
+  pathDepth = 0,
+  includeCoreStyles = true,
+  includeCoreScript = true,
+  includeBackToTop = true,
+  headExtras = ""
 }) {
   const bodyAttrs = [
     `data-generated-at="${escapeHtml(buildDate)}"`,
@@ -944,18 +948,184 @@ function pageTemplate({
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/styles/site.css?v=${buildStamp}" />
+    ${includeCoreStyles ? `<link rel="stylesheet" href="/styles/site.css?v=${buildStamp}" />` : ""}
+    ${headExtras}
   </head>
   <body ${bodyAttrs.join(" ")}>
     <div class="page-backdrop" aria-hidden="true"></div>
     ${content}
-    <button type="button" class="back-to-top" hidden data-back-top>回到顶部</button>
-    <script type="module" src="/scripts/app.js?v=${buildStamp}"></script>
+    ${includeBackToTop ? `<button type="button" class="back-to-top" hidden data-back-top>回到顶部</button>` : ""}
+    ${includeCoreScript ? `<script type="module" src="/scripts/app.js?v=${buildStamp}"></script>` : ""}
     ${scripts.map((script) => `<script type="module" src="/scripts/${escapeHtml(script)}?v=${buildStamp}"></script>`).join("\n    ")}
   </body>
 </html>`;
 
   return localizeInternalUrls(html, pathDepth);
+}
+
+function renderStandaloneHomeStyles() {
+  return `<style>
+    :root {
+      color-scheme: dark;
+      --bg: #071521;
+      --bg-soft: #0d2233;
+      --panel: rgba(10, 24, 36, 0.94);
+      --line: rgba(238, 244, 247, 0.1);
+      --text: #eef4f7;
+      --muted: rgba(238, 244, 247, 0.74);
+      --accent: #ef8b5e;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(239, 139, 94, 0.12), transparent 26%),
+        radial-gradient(circle at 84% 10%, rgba(89, 144, 173, 0.18), transparent 30%),
+        linear-gradient(180deg, #06121b 0%, #081622 38%, #09121b 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    p,h1,h2 { margin: 0; }
+    .page-backdrop { display: none; }
+    .home-standalone {
+      width: min(100%, 430px);
+      margin: 0 auto;
+      padding: 24px 16px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .home-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .home-title {
+      font-size: clamp(2rem, 1.7rem + 1vw, 2.4rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+    .home-subtitle,
+    .home-note {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .home-stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(238, 244, 247, 0.12);
+      border-radius: 999px;
+      background: rgba(238, 244, 247, 0.08);
+      color: rgba(238, 244, 247, 0.84);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .mode-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .mode-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
+    }
+    .mode-card__media {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #0a1722;
+    }
+    .mode-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding: 18px;
+    }
+    .mode-card__eyebrow,
+    .mode-card__meta {
+      color: var(--muted);
+    }
+    .mode-card__spot {
+      font-size: 0.96rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .mode-card__title {
+      font-size: 1.75rem;
+      line-height: 1.06;
+    }
+    .mode-card__lead {
+      color: rgba(238, 244, 247, 0.8);
+      line-height: 1.5;
+    }
+    .mode-card__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.84rem;
+    }
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f3c790 0%, #ef8b5e 100%);
+      color: #09121b;
+      margin-top: 4px;
+    }
+    .home-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .meta-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(8, 20, 31, 0.72);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .home-footer-note {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: rgba(238, 244, 247, 0.54);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+  </style>`;
 }
 
 function renderHomePage(data) {
@@ -967,12 +1137,16 @@ function renderHomePage(data) {
     description: "iPhone 竖屏优先的唐山海钓指南，围绕海岸钓与出海钓的核心点位推荐展开。",
     page: "home",
     pathDepth: 0,
+    includeCoreStyles: false,
+    includeCoreScript: false,
+    includeBackToTop: false,
+    headExtras: renderStandaloneHomeStyles(),
     content: `
-      <main class="app-shell home-shell">
+      <main class="home-standalone">
         <section class="home-hero">
           <p class="eyebrow">按出行方式，直达强点</p>
-          <h1 class="page-title home-title">唐山海钓指南</h1>
-          <p class="page-subtitle">按鱼多、稳定、值得去排序，帮你更快决定今天去哪里下杆。</p>
+          <h1 class="home-title">唐山海钓指南</h1>
+          <p class="home-subtitle">按鱼多、稳定、值得去排序，帮你更快决定今天去哪里下杆。</p>
           <div class="home-stat-row">
             <span class="stat-pill">17 个实测点位</span>
             <span class="stat-pill">海岸钓 / 出海钓</span>
@@ -1016,12 +1190,11 @@ function renderHomePage(data) {
           <a class="meta-link" href="/about-ranking/">排名说明</a>
           <a class="meta-link" href="/compliance/">合规说明</a>
           <a class="meta-link" href="/updates/">最近更新</a>
-          <button type="button" class="button button--ghost button--small" hidden data-install-trigger>安装到主屏幕</button>
         </section>
 
         <section class="home-footer-note">
-          <p>最新整理时间：<span data-generated-at></span></p>
-          <p>普通管控信息写在详情页风险区；只有生命危险型威胁会在列表前置提示。</p>
+          <p>最新整理时间：${escapeHtml(buildDate.replace(/-/g, "."))}</p>
+          <p class="home-note">普通管控信息写在详情页风险区；只有生命危险型威胁会在列表前置提示。</p>
         </section>
       </main>
     `
