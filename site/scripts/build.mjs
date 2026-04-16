@@ -1499,34 +1499,47 @@ async function collectFiles(dirPath, rootPath = dirPath) {
 }
 
 async function writeServiceWorker(routeUrls) {
-  const assetUrls = (await collectFiles(distDir))
-    .map((filePath) => path.relative(distDir, filePath).replaceAll(path.sep, "/"))
-    .filter((url) => url !== "sw.js");
-  const cacheUrls = unique([
-    ...routeUrls,
-    ...assetUrls
-  ]);
+  const knownRouteUrls = unique(routeUrls);
 
-  const serviceWorker = `const CACHE_NAME = "tangshan-fishing-guide-${buildStamp}";
-const PRECACHE_URLS = ${JSON.stringify(cacheUrls, null, 2)};
-const APP_SHELL_URL = "./";
+  const serviceWorker = `const APP_CACHE_PREFIX = "tangshan-fishing-guide-";
+const KNOWN_ROUTE_URLS = ${JSON.stringify(knownRouteUrls, null, 2)};
+
+async function clearGuideCaches() {
+  const keys = await caches.keys();
+  await Promise.all(
+    keys
+      .filter((key) => key.startsWith(APP_CACHE_PREFIX))
+      .map((key) => caches.delete(key))
+  );
+}
+
+async function notifyClients() {
+  const clients = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+  for (const client of clients) {
+    client.postMessage({ type: "guide-sw-reset" });
+  }
+}
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting())
-  );
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      )
-    ).then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    await clearGuideCaches();
+    await self.clients.claim();
+    await notifyClients();
+    await self.registration.unregister();
+  })());
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "guide-sw-reset") {
+    event.waitUntil((async () => {
+      await clearGuideCaches();
+      await self.registration.unregister();
+    })());
+  }
 });
 
 self.addEventListener("fetch", (event) => {
@@ -1534,37 +1547,20 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const request = event.request;
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin !== self.location.origin) {
+    return;
+  }
 
-  if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-          return response;
-        })
-        .catch(async () => {
-          return caches.match(request) || caches.match(APP_SHELL_URL) || caches.match("index.html") || Response.error();
-        })
-    );
+  const normalizedPath = requestUrl.pathname.startsWith("/")
+    ? requestUrl.pathname.slice(1)
+    : requestUrl.pathname;
+  if (!KNOWN_ROUTE_URLS.some((route) => normalizedPath.endsWith(route.replace(/^\\.\\//, "")))) {
     return;
   }
 
   event.respondWith(
-    caches.match(request).then((cached) => {
-      if (cached) {
-        return cached;
-      }
-
-      return fetch(request).then((response) => {
-        if (response.ok && new URL(request.url).origin === self.location.origin) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-        }
-        return response;
-      });
-    })
+    fetch(event.request, { cache: "no-store" }).catch(() => Response.error())
   );
 });`;
 

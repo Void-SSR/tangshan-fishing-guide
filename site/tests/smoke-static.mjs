@@ -107,6 +107,9 @@ async function main() {
   assert.ok(!sampleDetail.includes("data-list-shell"), "详情页错误残留列表壳子");
   assert.ok(!sampleDetail.includes("data-filter-chip"), "详情页错误残留筛选条");
   assert.ok(!swText.includes("/../../"), "Service worker 仍包含脏预缓存路径");
+  assert.ok(!swText.includes("PRECACHE_URLS"), "Service worker 仍在做整站预缓存");
+  assert.ok(!swText.includes("CACHE_NAME"), "Service worker 仍在使用旧缓存壳");
+  assert.ok(swText.includes("self.registration.unregister()"), "Service worker 未实现自注销清理");
   assert.equal(extractAbsoluteInternalAttrs(homeHtml).length, 0, "首页仍包含根路径资源，无法直接本地浏览");
   assert.equal(extractAbsoluteInternalAttrs(shoreHtml).length, 0, "海岸钓列表仍包含根路径资源，无法直接本地浏览");
   assert.equal(extractAbsoluteInternalAttrs(boatHtml).length, 0, "出海钓列表仍包含根路径资源，无法直接本地浏览");
