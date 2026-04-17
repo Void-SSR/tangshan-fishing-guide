@@ -123,7 +123,11 @@ function bindChips() {
     button.addEventListener("click", () => {
       const current = groupSelections.get(group);
       const next = current === value ? "" : value;
-      groupSelections.set(group, next);
+      if (next) {
+        groupSelections.set(group, next);
+      } else {
+        groupSelections.delete(group);
+      }
 
       document
         .querySelectorAll(`[data-filter-chip][data-group="${group}"]`)
@@ -153,6 +157,16 @@ function restoreState() {
         });
     });
   }
+
+  document.querySelectorAll(".chip-group").forEach((group) => {
+    const anySelected = group.querySelector('[data-filter-chip][data-selected="true"]');
+    if (!anySelected) {
+      const allChip = group.querySelector('[data-filter-chip][data-value=""]');
+      if (allChip) {
+        applyChipSelection(allChip, true);
+      }
+    }
+  });
 
   refreshList();
 

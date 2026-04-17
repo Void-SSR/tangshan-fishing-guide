@@ -467,6 +467,12 @@ h4 {
   gap: 12px;
 }
 
+.toolbar-rank-note {
+  color: var(--subtle);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
 .toolbar-actions {
   display: flex;
   align-items: center;
@@ -529,18 +535,63 @@ h4 {
   background: rgba(239, 139, 94, 0.16);
 }
 
-.spot-list {
+.tier-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.tier-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.tier-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(238, 244, 247, 0.08);
+}
+
+.tier-section__eyebrow {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.tier-section__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tier-section__title {
+  font-size: 1.18rem;
+  line-height: 1.1;
+}
+
+.tier-section__copy {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.spot-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .spot-card {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background: linear-gradient(180deg, rgba(12, 29, 43, 0.96) 0%, rgba(7, 18, 28, 0.94) 100%);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(180deg, rgba(10, 25, 37, 0.94) 0%, rgba(7, 18, 28, 0.92) 100%);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .spot-card__media {
@@ -616,8 +667,37 @@ h4 {
 .spot-card__body {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   padding: 16px;
+}
+
+.spot-card__heading {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.spot-card__rank-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(239, 139, 94, 0.14);
+  border: 1px solid rgba(239, 139, 94, 0.24);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.spot-card__headline {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .spot-card__title {
@@ -636,6 +716,29 @@ h4 {
   -webkit-line-clamp: 2;
 }
 
+.spot-card__compare {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(238, 244, 247, 0.08);
+}
+
+.spot-card__fact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(238, 244, 247, 0.06);
+}
+
+.spot-card__fact-label {
+  color: var(--subtle);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
 .spot-species-tags,
 .detail-tag-list {
   display: flex;
@@ -648,6 +751,10 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.spot-card__support {
+  padding-top: 4px;
 }
 
 .support-pill,
@@ -805,6 +912,27 @@ h4 {
   gap: 8px;
 }
 
+.detail-decision-note {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(5, 14, 22, 0.44);
+  border: 1px solid rgba(239, 139, 94, 0.12);
+}
+
+.detail-decision-note strong {
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.detail-decision-note span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
 .detail-title-meta__item {
   display: inline-flex;
   align-items: center;
@@ -846,6 +974,18 @@ h4 {
 .summary-item span:last-child {
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+.page-topbar--detail .page-topbar__actions {
+  gap: 6px;
+}
+
+.page-topbar--detail .icon-button {
+  min-height: 40px;
+  padding: 0 12px;
+  background: rgba(8, 20, 31, 0.54);
+  color: var(--muted);
+  border-color: rgba(238, 244, 247, 0.08);
 }
 
 .detail-section {
@@ -948,8 +1088,8 @@ h4 {
   z-index: 36;
   width: min(calc(100vw - 24px), 406px);
   transform: translateX(-50%);
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
   padding:
     10px
@@ -961,6 +1101,19 @@ h4 {
   background: rgba(6, 18, 27, 0.82);
   backdrop-filter: blur(18px);
   box-shadow: 0 -14px 32px rgba(0, 0, 0, 0.18);
+}
+
+.detail-bottom-actions__note {
+  color: rgba(238, 244, 247, 0.72);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.detail-bottom-actions__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 10px;
 }
 
 .detail-bottom-actions .button {

@@ -44,11 +44,13 @@ const modeMeta = {
     slug: "shore",
     label: "海岸钓",
     pageTitle: "海岸钓",
-    subtitle: "从防波堤、港池、入海口与闸口点位里，优先看鱼更多、稳定性更强的岸边核心点。",
-    shortIntro: "优先推荐海鲈、黑头和鲅鱼表现更强的岸边点位。",
-    helper: "默认按推荐强度排序",
-    homeImage: "/images/spots/mode-shore-home.png",
-    homeCardLead: "优先看防波堤、港池、入海口与闸口里的强点。",
+    subtitle: "以下点位默认按综合推荐顺序排列。先看更值得优先查看的点，再按区域、目标鱼和结构偏好缩小范围。",
+    shortIntro: "从防波堤、港池、入海口、闸口等近岸结构里，优先看表现更强、窗口更明确、更值得优先查看的钓点。",
+    helper: "按综合推荐顺序查看",
+    homeImage: "https://www.tangshan.gov.cn/u/cms/www/202312/291705323esi.jpg",
+    homeCardLead: "今天不出船，先把岸边强点挑出来。",
+    homeCardSupport: "海鲈 / 黑头 / 鲅鱼 / 梭鱼 / 六线鱼 / 黑鲷",
+    homeCardHint: "适合今天不出船，想先按区域、结构和目标鱼缩小范围的人。",
     tideNote: "优先看涨二分、落八分与大潮窗口。",
     pageKey: "shore-list",
     detailBackLabel: "返回海岸钓"
@@ -57,11 +59,13 @@ const modeMeta = {
     slug: "boat",
     label: "出海钓",
     pageTitle: "出海钓",
-    subtitle: "从海洋牧场、人工鱼礁与沉船礁区里，优先看实测表现更强的出海点。",
-    shortIntro: "优先推荐海洋牧场、人工鱼礁与沉船礁区的核心海域。",
-    helper: "默认按推荐强度排序",
-    homeImage: "/images/spots/mode-boat-home.png",
-    homeCardLead: "优先看海洋牧场、人工鱼礁与沉船礁区里的强点。",
+    subtitle: "以下海域默认按综合推荐顺序排列。先看渔获表现和目标鱼强度更突出的海域，再结合预算、登船点和出海经验做判断。",
+    shortIntro: "从海洋牧场、人工鱼礁、沉船礁区和外围核心海域里，优先看渔获表现更强、更稳定、更值得优先查看的海域。",
+    helper: "按综合推荐顺序查看",
+    homeImage: "https://www.tangshan.gov.cn/bmdt/images/202309/27153633podh.jpg",
+    homeCardLead: "今天准备出船，先看船该开向哪片海域。",
+    homeCardSupport: "鲅鱼 / 海鲈 / 黑头 / 真鲷 / 牙鲆 / 半滑舌鳎",
+    homeCardHint: "适合已经准备出船，想先看海域类型、登船方向和目标鱼的人。",
     tideNote: "优先看清晨、傍晚与潮汐转换窗口。",
     pageKey: "boat-list",
     detailBackLabel: "返回出海钓"
@@ -72,6 +76,24 @@ const tierMeta = {
   T1: "第一梯队",
   T2: "第二梯队",
   T3: "第三梯队"
+};
+
+const tierGuideMeta = {
+  T1: {
+    title: "第一梯队",
+    lead: "优先看这些点",
+    copy: "这些点位更适合作为当前模式下的第一优先级，先从这里判断是否成行。"
+  },
+  T2: {
+    title: "第二梯队",
+    lead: "稳定可用",
+    copy: "这些点位适合作为区域补位和目标鱼补位，先看是否更贴合你的路线与偏好。"
+  },
+  T3: {
+    title: "第三梯队",
+    lead: "练手与补位",
+    copy: "这些点位更适合休闲练手、补位出行，优先级低于前两梯队。"
+  }
 };
 
 const newbieMeta = {
@@ -369,10 +391,30 @@ async function findLocalRealImage(spotId, variant) {
   return null;
 }
 
+function fallbackRemoteAsset(spot, variant) {
+  if (variant === "list") {
+    if (spot.mode === "shore") {
+      return spot.region === "曹妃甸"
+        ? "https://www.tangshan.gov.cn/u/cms/www/202312/291705323esi.jpg"
+        : "https://commons.wikimedia.org/wiki/Special:FilePath/Caofeidian.jpg";
+    }
+
+    return spot.region === "曹妃甸"
+      ? "https://commons.wikimedia.org/wiki/Special:FilePath/CaofeidianPort1.jpg"
+      : "https://www.tangshan.gov.cn/bmdt/images/202309/27153633podh.jpg";
+  }
+
+  if (spot.region === "曹妃甸") {
+    return "https://commons.wikimedia.org/wiki/Special:FilePath/ChinaTangshanCaofeidian.png";
+  }
+
+  return "https://commons.wikimedia.org/wiki/Special:FilePath/Tangshan-map.jpg";
+}
+
 async function buildSpotImage(spot, variant, override) {
   const type = override.imageType?.[variant] || defaultEnrichmentOverride(spot).imageType[variant];
   const localAsset = await findLocalRealImage(spot.id, variant);
-  const remoteAssetUrl = override.imageAssetUrl?.[variant] || null;
+  const remoteAssetUrl = override.imageAssetUrl?.[variant] || fallbackRemoteAsset(spot, variant);
   const source = localAsset
     ? "站内已接入公开图片资源"
     : remoteAssetUrl
@@ -443,6 +485,70 @@ function buildWhoShouldGo(spot) {
   ]);
 }
 
+function buildAccessSignal(spot) {
+  const text = spot.costAndAccess || "";
+
+  if (/停车免费|步行距离短|轻松|短程低成本|短程船费低|补给完善|轻装备/.test(text)) {
+    return "到达轻松";
+  }
+
+  if (/可通车|可停车|辅路可停车|坝根土路可停车|步行进入|外围可到达|渔港补给方便/.test(text)) {
+    return "到达可控";
+  }
+
+  if (/距离较远|偏远|早出晚归|土路通行一般|无补给|需正规持证/.test(text)) {
+    return "需要准备";
+  }
+
+  return spot.mode === "boat" ? "看登船安排" : "看停车步行";
+}
+
+function buildCostSignal(spot) {
+  const text = `${spot.costAndAccess || ""} ${(spot.highlights || []).join(" ")}`;
+
+  if (/低成本|船费较低|船费人均低|短程|一日往返|成本与回报比高/.test(text)) {
+    return "成本较低";
+  }
+
+  if (/距离较远|偏远|早出晚归|外海|正规持证休闲渔业船只/.test(text)) {
+    return "成本偏高";
+  }
+
+  return "成本中等";
+}
+
+function buildFirstVisitAdvice(spot) {
+  if (spot.newbieLevel === "high") {
+    return "首访可按默认推荐顺序直接比较，优先挑窗口最清晰的点。";
+  }
+
+  if (spot.newbieLevel === "medium") {
+    return "首访建议先白天去，先确认风、潮、停车和撤离路线。";
+  }
+
+  return "首访建议结伴，先确认撤离路线、站位条件和补给。";
+}
+
+function buildListAudienceSignal(spot) {
+  return (
+    buildWhoShouldGo(spot)[0] ||
+    newbieMeta[spot.newbieLevel]?.copy ||
+    "先按当天窗口、出行半径和自己的经验判断是否优先去。"
+  );
+}
+
+function buildQuickTactic(spot, detailTackle) {
+  const lead =
+    detailTackle?.[0] ||
+    spot.methodSummary?.[0] ||
+    "先按当前模式的常规线组和目标鱼层位起步。";
+  const support = spot.baitSummary?.[0]
+    ? `首选饵料：${spot.baitSummary[0]}。`
+    : "先按鱼层、潮汐和结构变化调整节奏。";
+
+  return { lead, support };
+}
+
 function classifyRiskNotes(spot, enrichment) {
   const safetyKeywords = /(无护栏|防滑|湿滑|深水|坠|落水|涨潮|被困|风力|大雾|暴雨|夜钓|浪|救生|单独|钉鞋|寒潮)/;
   const personSafety = [];
@@ -475,6 +581,30 @@ function classifyRiskNotes(spot, enrichment) {
 function buildSummary(spot) {
   const lead = spot.highlights[0] || spot.catchProfile.stability;
   return `${lead} · 旺季参考 ${spot.catchProfile.peakAvgPerPerson}`;
+}
+
+function normalizeSentence(value) {
+  return String(value || "").replace(/[。；]+$/g, "").trim();
+}
+
+function buildCardReason(spot) {
+  const lead = normalizeSentence(spot.highlights[0] || spot.catchProfile.stability);
+  if (!lead) {
+    return `先看 ${spot.targetSpecies.slice(0, 2).join(" / ")} 表现，再决定是否继续展开。`;
+  }
+
+  return `${lead}。`;
+}
+
+function buildDecisionLead(spot) {
+  const modeNoun = spot.mode === "boat" ? "海域" : "点位";
+  const modeLabel = modeMeta[spot.mode]?.label || "当前模式";
+  const priorityLead = spot.rank === 1
+    ? `这是当前${modeLabel}里最值得优先查看的${modeNoun}`
+    : `这是当前${modeLabel}里值得优先比较的${modeNoun}`;
+  const speciesLead = spot.targetSpecies.slice(0, 2).join(" / ");
+
+  return `${priorityLead}，主看${speciesLead}，先从核心结构、窗口期和风险条件判断这次是否值得成行。`;
 }
 
 function buildRelatedGroups(spot, spots, rankings) {
@@ -520,6 +650,8 @@ async function buildEnrichedSpot(spot, kb, enrichmentOverrides) {
     ...spot.seasonWindows,
     detailWindowTail(spot.mode)
   ]);
+  const detailWhoShouldGo = buildWhoShouldGo(spot);
+  const quickTactic = buildQuickTactic(spot, detailTackle);
 
   return {
     ...spot,
@@ -527,6 +659,8 @@ async function buildEnrichedSpot(spot, kb, enrichmentOverrides) {
     tierLabel: tierMeta[spot.tier] || spot.tier,
     rankLabel: `第 ${spot.rank} 推荐`,
     copySummary: buildSummary(spot),
+    cardReason: buildCardReason(spot),
+    decisionLead: buildDecisionLead(spot),
     listSeasonSummary: summarizeSeasons(spot.seasonWindows),
     bestWindowSummary: compactSeasonLine(spot.seasonWindows[0] || "窗口信息待补"),
     listImage,
@@ -568,7 +702,13 @@ async function buildEnrichedSpot(spot, kb, enrichmentOverrides) {
     relatedGroups,
     detailWindows,
     detailTackle,
-    detailWhoShouldGo: buildWhoShouldGo(spot),
+    detailWhoShouldGo,
+    accessSignal: buildAccessSignal(spot),
+    costSignal: buildCostSignal(spot),
+    firstVisitAdvice: buildFirstVisitAdvice(spot),
+    listAudienceSignal: buildListAudienceSignal(spot),
+    quickTacticLead: quickTactic.lead,
+    quickTacticSupport: quickTactic.support,
     riskNotes,
     sourceDocumentTitle: kb.sourceDocuments.find((item) => item.id === spot.sourceDocumentId)?.title || spot.sourceDocumentId
   };
@@ -789,7 +929,8 @@ function renderSpeciesTags(tags) {
 function renderSupportPills(spot) {
   const pills = [
     newbieMeta[spot.newbieLevel]?.badge,
-    verificationMeta[spot.verificationStatus]?.label
+    spot.accessSignal,
+    spot.costSignal
   ].filter(Boolean);
 
   return pills.map((pill) => `<span class="support-pill">${escapeHtml(pill)}</span>`).join("");
@@ -829,7 +970,18 @@ function renderChipGroup(group) {
   return `
     <section class="chip-group" aria-label="${escapeHtml(group.label)}">
       <p class="chip-group__label">${escapeHtml(group.label)}</p>
-      <div class="chip-row">${chips}</div>
+      <div class="chip-row">
+        <button
+          type="button"
+          class="chip"
+          data-filter-chip
+          data-group="${escapeHtml(group.key)}"
+          data-value=""
+          aria-pressed="true"
+          data-selected="true"
+        >全部</button>
+        ${chips}
+      </div>
     </section>
   `;
 }
@@ -846,18 +998,22 @@ function renderRelatedCard(spot, label) {
 
 function pickRelatedCards(spot, spotMap) {
   const used = new Set([spot.id]);
+  const fallbackPool = [...spotMap.values()]
+    .filter((candidate) => candidate.mode === spot.mode && candidate.id !== spot.id)
+    .sort((a, b) => tierOrder(a.tier) - tierOrder(b.tier) || a.rank - b.rank)
+    .map((candidate) => candidate.id);
   const slotConfigs = [
     {
       label: "同区域推荐",
-      pool: [...spot.relatedGroups.sameRegion, ...spot.relatedGroups.sameMode, ...spot.relatedGroups.all]
+      pool: [...spot.relatedGroups.sameRegion, ...spot.relatedGroups.sameMode, ...spot.relatedGroups.all, ...fallbackPool]
     },
     {
       label: "同模式推荐",
-      pool: [...spot.relatedGroups.sameMode, ...spot.relatedGroups.all]
+      pool: [...spot.relatedGroups.sameMode, ...spot.relatedGroups.all, ...fallbackPool]
     },
     {
       label: `同目标鱼：${spot.targetSpecies[0]}`,
-      pool: [...spot.relatedGroups.sameTarget, ...spot.relatedGroups.all]
+      pool: [...spot.relatedGroups.sameTarget, ...spot.relatedGroups.all, ...fallbackPool]
     }
   ];
 
@@ -1002,7 +1158,7 @@ function renderStandaloneHomeStyles() {
     .home-hero {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     .eyebrow {
       color: var(--accent);
@@ -1020,6 +1176,16 @@ function renderStandaloneHomeStyles() {
     .home-note {
       color: var(--muted);
       line-height: 1.55;
+    }
+    .home-subtitle {
+      max-width: 22ch;
+      font-size: 1.02rem;
+      color: rgba(238, 244, 247, 0.86);
+    }
+    .home-note {
+      max-width: 28ch;
+      font-size: 0.94rem;
+      color: rgba(238, 244, 247, 0.68);
     }
     .home-stat-row {
       display: flex;
@@ -1070,9 +1236,9 @@ function renderStandaloneHomeStyles() {
       color: var(--muted);
     }
     .mode-card__spot {
-      font-size: 0.96rem;
-      font-weight: 600;
-      line-height: 1.35;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.4;
     }
     .mode-card__title {
       font-size: 1.75rem;
@@ -1087,6 +1253,18 @@ function renderStandaloneHomeStyles() {
       flex-direction: column;
       gap: 4px;
       font-size: 0.84rem;
+    }
+    .mode-card__species {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-top: 2px;
+    }
+    .mode-card__species-label {
+      color: rgba(238, 244, 247, 0.52);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .button {
       min-height: 52px;
@@ -1129,9 +1307,6 @@ function renderStandaloneHomeStyles() {
 }
 
 function renderHomePage(data) {
-  const shoreTop = data.spots.find((spot) => spot.mode === "shore" && spot.rank === 1);
-  const boatTop = data.spots.find((spot) => spot.mode === "boat" && spot.rank === 1);
-
   return pageTemplate({
     title: "唐山海钓指南",
     description: "iPhone 竖屏优先的唐山海钓指南，围绕海岸钓与出海钓的核心点位推荐展开。",
@@ -1144,13 +1319,14 @@ function renderHomePage(data) {
     content: `
       <main class="home-standalone">
         <section class="home-hero">
-          <p class="eyebrow">按出行方式，直达强点</p>
+          <p class="eyebrow">今天怎么钓，先从这里选</p>
           <h1 class="home-title">唐山海钓指南</h1>
-          <p class="home-subtitle">按鱼多、稳定、值得去排序，帮你更快决定今天去哪里下杆。</p>
-          <div class="home-stat-row">
-            <span class="stat-pill">17 个实测点位</span>
+          <p class="home-subtitle">先选海岸钓还是出海钓，再进对应指南找点。</p>
+          <p class="home-note">打开后直接看当前模式下的钓点、窗口、风险和实战建议，不在首页绕圈子。</p>
+          <div class="home-stat-row" aria-label="首页概览">
             <span class="stat-pill">海岸钓 / 出海钓</span>
-            <span class="stat-pill">持续核验中</span>
+            <span class="stat-pill">${escapeHtml(String(data.spots.length))} 个钓点</span>
+            <span class="stat-pill">持续核验更新</span>
           </div>
         </section>
 
@@ -1158,30 +1334,34 @@ function renderHomePage(data) {
           <a class="mode-card" href="/shore/">
             <img class="mode-card__media" src="${escapeHtml(modeMeta.shore.homeImage)}" alt="海岸钓模式背景图" />
             <div class="mode-card__body">
-              <p class="mode-card__eyebrow">海岸钓首推</p>
-              <p class="mode-card__spot">${escapeHtml(shoreTop.name)}</p>
+              <p class="mode-card__eyebrow">岸边先看</p>
               <h2 class="mode-card__title">海岸钓</h2>
               <p class="mode-card__lead">${escapeHtml(modeMeta.shore.homeCardLead)}</p>
-              <div class="mode-card__meta">
-                <span>核心鱼种：${escapeHtml(shoreTop.targetSpecies.slice(0, 2).join(" / "))}</span>
-                <span>最佳窗口：${escapeHtml(shoreTop.bestWindowSummary)}</span>
+              <div class="mode-card__species">
+                <span class="mode-card__species-label">常看鱼种</span>
+                <p class="mode-card__spot">${escapeHtml(modeMeta.shore.homeCardSupport)}</p>
               </div>
-              <span class="button button--primary">进入海岸钓</span>
+              <div class="mode-card__meta">
+                <span>${escapeHtml(modeMeta.shore.homeCardHint)}</span>
+              </div>
+              <span class="button button--primary">进入海岸钓指南</span>
             </div>
           </a>
 
           <a class="mode-card" href="/boat/">
             <img class="mode-card__media" src="${escapeHtml(modeMeta.boat.homeImage)}" alt="出海钓模式背景图" />
             <div class="mode-card__body">
-              <p class="mode-card__eyebrow">出海钓首推</p>
-              <p class="mode-card__spot">${escapeHtml(boatTop.name)}</p>
+              <p class="mode-card__eyebrow">出船先看</p>
               <h2 class="mode-card__title">出海钓</h2>
               <p class="mode-card__lead">${escapeHtml(modeMeta.boat.homeCardLead)}</p>
-              <div class="mode-card__meta">
-                <span>核心鱼种：${escapeHtml(boatTop.targetSpecies.slice(0, 2).join(" / "))}</span>
-                <span>最佳窗口：${escapeHtml(boatTop.bestWindowSummary)}</span>
+              <div class="mode-card__species">
+                <span class="mode-card__species-label">常看鱼种</span>
+                <p class="mode-card__spot">${escapeHtml(modeMeta.boat.homeCardSupport)}</p>
               </div>
-              <span class="button button--primary">进入出海钓</span>
+              <div class="mode-card__meta">
+                <span>${escapeHtml(modeMeta.boat.homeCardHint)}</span>
+              </div>
+              <span class="button button--primary">进入出海钓指南</span>
             </div>
           </a>
         </section>
@@ -1194,7 +1374,6 @@ function renderHomePage(data) {
 
         <section class="home-footer-note">
           <p>最新整理时间：${escapeHtml(buildDate.replace(/-/g, "."))}</p>
-          <p class="home-note">普通管控信息写在详情页风险区；只有生命危险型威胁会在列表前置提示。</p>
         </section>
       </main>
     `
@@ -1204,7 +1383,7 @@ function renderHomePage(data) {
 function renderListPage(mode, spots) {
   const meta = modeMeta[mode];
   const groups = filterGroups[mode];
-  const cardList = spots.map((spot) => {
+  const renderSpotCard = (spot) => {
     const danger = spot.dangerFlags[0]
       ? `<span class="spot-danger-badge">生命危险：${escapeHtml(dangerMeta[spot.dangerFlags[0]].label)}</span>`
       : "";
@@ -1237,20 +1416,63 @@ function renderListPage(mode, spots) {
           ${danger}
         </div>
         <div class="spot-card__body">
-          <h2 class="spot-card__title">${escapeHtml(spot.name)}</h2>
-          <p class="spot-card__summary">${escapeHtml(spot.copySummary)}</p>
+          <div class="spot-card__heading">
+            <span class="spot-card__rank-index">#${escapeHtml(String(spot.rank))}</span>
+            <div class="spot-card__headline">
+              <h2 class="spot-card__title">${escapeHtml(spot.name)}</h2>
+              <p class="spot-card__summary">${escapeHtml(spot.cardReason)}</p>
+            </div>
+          </div>
+          <div class="spot-card__compare">
+            <div class="spot-card__fact">
+              <span class="spot-card__fact-label">区域与导航</span>
+              <p class="spot-meta-line">${escapeHtml(spot.region)} · 导航“${escapeHtml(spot.launchOrAccessPoint)}”</p>
+            </div>
+            <div class="spot-card__fact">
+              <span class="spot-card__fact-label">核心钓段</span>
+              <p class="spot-zone-text">${escapeHtml(spot.coreZone)}</p>
+            </div>
+            <div class="spot-card__fact">
+              <span class="spot-card__fact-label">适合谁先看</span>
+              <p class="spot-zone-text">${escapeHtml(spot.listAudienceSignal)}</p>
+            </div>
+          </div>
           <ul class="spot-species-tags">${renderSpeciesTags(spot.targetSpecies)}</ul>
+          <p class="spot-season-text">核心汛期：${escapeHtml(spot.listSeasonSummary)}</p>
           <div class="spot-card__support">${renderSupportPills(spot)}</div>
-          <p class="spot-season-text">最佳窗口：${escapeHtml(spot.bestWindowSummary)}</p>
-          <p class="spot-meta-line">${escapeHtml(spot.region)} · 导航“${escapeHtml(spot.launchOrAccessPoint)}”</p>
-          <p class="spot-zone-text">${escapeHtml(spot.coreZone)}</p>
           <div class="spot-card__footer">
             <a class="button button--primary" data-detail-link href="/spots/${escapeHtml(spot.id)}/">查看详细</a>
           </div>
         </div>
       </article>
     `;
-  }).join("");
+  };
+
+  const cardList = Object.entries(tierGuideMeta)
+    .map(([tier, tierGuide]) => {
+      const tierSpots = spots.filter((spot) => spot.tier === tier);
+
+      if (!tierSpots.length) {
+        return "";
+      }
+
+      return `
+        <section class="tier-section" data-tier="${escapeHtml(tier)}">
+          <header class="tier-section__header">
+            <p class="tier-section__eyebrow">${escapeHtml(tierGuide.lead)}</p>
+            <div class="tier-section__title-row">
+              <h2 class="tier-section__title">${escapeHtml(tierGuide.title)}</h2>
+              <span class="count-pill">${escapeHtml(String(tierSpots.length))} 个钓点</span>
+            </div>
+            <p class="tier-section__copy">${escapeHtml(tierGuide.copy)}</p>
+          </header>
+          <div class="spot-list" data-tier-list="${escapeHtml(tier)}">
+            ${tierSpots.map(renderSpotCard).join("")}
+          </div>
+        </section>
+      `;
+    })
+    .join("");
 
   return pageTemplate({
     title: `${meta.pageTitle} · 唐山海钓指南`,
@@ -1263,7 +1485,7 @@ function renderListPage(mode, spots) {
         <header class="page-topbar">
           <a class="icon-link" href="/">返回首页</a>
           <div class="page-topbar__titles">
-            <p class="eyebrow">第二层级</p>
+            <p class="eyebrow">模式内钓点列表</p>
             <h1 class="page-title">${escapeHtml(meta.pageTitle)}</h1>
             <p class="page-subtitle">${escapeHtml(meta.helper)}</p>
           </div>
@@ -1290,12 +1512,13 @@ function renderListPage(mode, spots) {
                 <a class="text-link" href="/compliance/">查看合规</a>
               </div>
             </div>
+            <p class="toolbar-rank-note">排序规则：先看第一梯队，再看第二、第三梯队。</p>
           </div>
 
           ${groups.map(renderChipGroup).join("")}
         </section>
 
-        <section class="spot-list" data-list-shell>
+        <section class="tier-sections" data-list-shell>
           ${cardList}
         </section>
 
@@ -1354,13 +1577,18 @@ function renderDetailPage(spot, spotMap) {
             <span class="spot-mode-badge">${escapeHtml(spot.modeLabel)}</span>
             ${dangerLead}
           </div>
-          <div class="detail-hero__caption">当前主图：${escapeHtml(spot.heroImage.label)} · ${escapeHtml(spot.heroImage.readinessLabel)}</div>
+          <div class="detail-hero__caption">图片说明：优先观察 ${escapeHtml(spot.coreZone)} 及其对应结构带。</div>
         </section>
 
         <section class="detail-title-block">
           <p class="eyebrow">${escapeHtml(spot.tierLabel)}</p>
           <h1 class="page-title">${escapeHtml(spot.name)}</h1>
-          <p class="page-subtitle">${escapeHtml(spot.copySummary)}</p>
+          <p class="eyebrow">一句话判断</p>
+          <p class="page-subtitle">${escapeHtml(spot.decisionLead)}</p>
+          <div class="detail-decision-note">
+            <strong>${escapeHtml(spot.accessSignal)} · ${escapeHtml(spot.costSignal)}</strong>
+            <span>${escapeHtml(spot.firstVisitAdvice)}</span>
+          </div>
           <div class="detail-title-meta">
             <span class="detail-title-meta__item">${escapeHtml(spot.region)}</span>
             <span class="detail-title-meta__item">导航“${escapeHtml(spot.launchOrAccessPoint)}”</span>
@@ -1368,9 +1596,8 @@ function renderDetailPage(spot, spotMap) {
           </div>
           <div class="detail-status-row">
             <span class="status-pill status-pill--${escapeHtml(verificationTone)}">${escapeHtml(verificationLabel)}</span>
-            <span class="status-pill">${escapeHtml(spot.heroImage.label)}</span>
-            <span class="status-pill">${escapeHtml(imageReadinessMeta[spot.heroImage.readiness].label)}</span>
-            ${spot.assetPriority === "high" ? '<span class="status-pill status-pill--accent">高优先级补图</span>' : ""}
+            <span class="status-pill">${escapeHtml(newbieMeta[spot.newbieLevel].badge)}</span>
+            <span class="status-pill">${escapeHtml(spot.accessSignal)}</span>
           </div>
         </section>
 
@@ -1381,14 +1608,29 @@ function renderDetailPage(spot, spotMap) {
             <span>${escapeHtml(spot.launchOrAccessPoint)}</span>
           </article>
           <article class="summary-item">
-            <span class="summary-item__label">主打鱼种</span>
-            <strong>${escapeHtml(spot.targetSpecies.join(" / "))}</strong>
-            <span>${escapeHtml(spot.commonSpecies.slice(0, 2).join(" / ") || "补充鱼种待补")}</span>
+            <span class="summary-item__label">到达与准备</span>
+            <strong>${escapeHtml(spot.accessSignal)} · ${escapeHtml(spot.costSignal)}</strong>
+            <span>${escapeHtml(spot.costAndAccess || spot.firstVisitAdvice)}</span>
+          </article>
+          <article class="summary-item">
+            <span class="summary-item__label">首访建议</span>
+            <strong>先判断能否成行</strong>
+            <span>${escapeHtml(spot.firstVisitAdvice)}</span>
+          </article>
+          <article class="summary-item">
+            <span class="summary-item__label">怎么钓</span>
+            <strong>${escapeHtml(spot.quickTacticLead)}</strong>
+            <span>${escapeHtml(spot.quickTacticSupport)}</span>
           </article>
           <article class="summary-item">
             <span class="summary-item__label">核心汛期</span>
             <strong>${escapeHtml(spot.bestWindowSummary)}</strong>
             <span>${escapeHtml(meta.tideNote)}</span>
+          </article>
+          <article class="summary-item">
+            <span class="summary-item__label">主打鱼种</span>
+            <strong>${escapeHtml(spot.targetSpecies.join(" / "))}</strong>
+            <span>${escapeHtml(spot.commonSpecies.slice(0, 2).join(" / ") || "补充鱼种待补")}</span>
           </article>
           <article class="summary-item">
             <span class="summary-item__label">新手友好度</span>
@@ -1464,6 +1706,7 @@ function renderDetailPage(spot, spotMap) {
             <p><strong>最近整理：</strong><span data-generated-at></span></p>
             <p><strong>核验状态：</strong>${escapeHtml(verificationLabel)}</p>
             <p><strong>复核周期：</strong>${escapeHtml(String(spot.verificationWindowDays))} 天</p>
+            <p><strong>待复核提示：</strong>动态进入性、作业边界和临时管控信息，出发前仍需再次确认。</p>
           </div>
         </section>
 
@@ -1492,8 +1735,11 @@ function renderDetailPage(spot, spotMap) {
       </main>
 
       <nav class="detail-bottom-actions">
-        <a class="button button--ghost" href="/${escapeHtml(meta.slug)}/">${escapeHtml(meta.detailBackLabel)}</a>
-        <a class="button button--primary" data-next-link href="/spots/${escapeHtml(nextSpot.id)}/">查看下一个推荐点</a>
+        <p class="detail-bottom-actions__note">继续比较时，先回到同模式排序页，或者直接看下一个推荐点。</p>
+        <div class="detail-bottom-actions__grid">
+          <a class="button button--ghost" href="/${escapeHtml(meta.slug)}/">${escapeHtml(meta.detailBackLabel)}排序页</a>
+          <a class="button button--primary" data-next-link href="/spots/${escapeHtml(nextSpot.id)}/">继续看下一个推荐点</a>
+        </div>
       </nav>
     `,
     scripts: ["detail.js"]
